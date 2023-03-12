@@ -6,6 +6,7 @@ import {ServiceComponent} from "./pages/service/service/service.component";
 import {ContactsComponent} from "./pages/contacts/contacts/contacts.component";
 import {AboutComponent} from "./pages/about/about/about.component";
 import {OrderComponent} from "./pages/order/order/order.component";
+import {SearchComponent} from "./pages/services/search/search.component";
 
 const routes: Routes = [
     {
@@ -19,6 +20,12 @@ const routes: Routes = [
         title: 'Услуги',
         loadChildren: () => import('./pages/services/services.module').then(mod => mod.ServicesModule),
         component: ServicesComponent
+    },
+    {
+        path: 'services/search',
+        title: 'Поиск',
+        loadChildren: () => import('./pages/services/services.module').then(mod => mod.ServicesModule),
+        component: SearchComponent
     },
     {
         path: 'order',

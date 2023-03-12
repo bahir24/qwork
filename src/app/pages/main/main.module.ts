@@ -5,12 +5,14 @@ import {MainComponent} from "./main/main.component";
 import { InputTextModule } from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CarouselComponent} from './carousel/carousel.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
     declarations: [
         MainComponent,
-        CarouselComponent
+        CarouselComponent,
+        OrderComponent
     ],
     imports: [
         CommonModule,

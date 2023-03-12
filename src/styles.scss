@@ -49,3 +49,26 @@ $textColor: #000;
         max-width: 100%;
     }
 }
+
+section{
+    margin-bottom: 40px;
+}
+.button {
+    min-width: 250px;
+    padding: 15px 30px;
+    border-radius: 6px;
+}
+
+.section__head {
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+
+.icon {
+    fill: black;
+    width: 300px;
+    text-align: center;
+}
