@@ -1,0 +1,32 @@
+.footer{
+    background-color: #495057;
+}
+
+.nav__footer {
+    .p-menubar-root-list{
+        display: flex;
+        flex-direction: column;
+        .p-menuitem{
+            margin-bottom: 15px;
+            .p-menuitem-text{
+                color: #fff;
+            }
+        }
+    }
+}
+.footer__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.footer__contacts-list{
+    li{
+        margin-bottom: 15px;
+        color: #fff;
+        .footer__contacts-link{
+            color: #fff;
+        }
+    }
+}

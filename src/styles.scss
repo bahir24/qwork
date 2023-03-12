@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+$textColor: #000;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif, Arial;
+    font-weight: normal;
+    font-style: normal;
+    border: none;
+    list-style-type: none;
+    text-decoration: none;
+    color: $textColor;
+}
+
+.container {
+    max-width: 1320px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .container {
+        max-width: 100%;
+    }
+}

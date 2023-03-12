@@ -1,5 +1,47 @@
 .nav {
+  display: flex;
+  align-items: center;
   .p-menuitem{
     padding: 0 20px;
   }
+}
+
+
+.logo,
+.header__contacts,
+.header__socials{
+  display:flex;
+  align-items:center;
+}
+
+.header__contacts-list{
+  display: flex;
+  justify-content: space-between;
+.header__contacts-link{
+  margin-right: 20px;
+}  
+}
+
+
+
+.header__wrapper{
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.socials{
+  display: flex;
+}
+
+.socials__item{
+  margin-right: 10px;
+}
+
+.socials__item:last-child{
+  margin-right: 0;
+}
+
+.socials__item-link{
+  font-size: 40px;
 }

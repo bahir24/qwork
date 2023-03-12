@@ -1,0 +1,16 @@
+<p-carousel [value]="items"
+            [circular]="true" styleClass="employees__slider" [showNavigators]="true" [showIndicators]="false" contentClass="employees-content">
+    <ng-template let-item pTemplate="item">
+        <div class="employee-type">
+            <div class="employee-type__image">
+                <img src="{{ item.image }}" alt="employee pic" class="employee-type__image-pic">
+            </div>
+            <div class="employee-type__desc">
+                <h3 class="employee__head">{{ item.title }}</h3>
+                <h4 class="employee__subhead">{{ item.subtitle }}</h4>
+                <p *ngFor="let paragraph of item.text" class="employee__paragraph">{{ paragraph }}</p>
+            </div>
+        </div>
+
+    </ng-template>
+</p-carousel>
