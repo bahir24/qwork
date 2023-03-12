@@ -16,7 +16,9 @@ export class HeaderComponent {
   ) {
     this.menu = router.config
       .filter(item => item.title)
-      .map(route => <MenuItem>{label: route.title,url: route.path});
+      .map(route => <MenuItem>{label: route.title,url: route.path ? route.path : '/'});
+
+    // console.log(this.menu);
   }
 
 }
