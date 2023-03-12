@@ -1,0 +1,39 @@
+.contacts{
+  margin-bottom: 40px;
+  //height: 100vh;
+}
+.contacts__wrapper {
+  height: 60vh;
+}
+
+.contacts__table {
+  height: 40%;
+  padding: 20px 0;
+}
+
+.contacts__table--row {
+  padding: 20px 0;
+  display: flex;
+}
+
+.contacts__table--head,
+.contacts__table--data {
+  font-size: 24px;
+}
+
+.contacts__table--head {
+  width: 20%;
+}
+
+.contacts__table--data {
+  width: 70%;
+}
+
+.contacts__map {
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+  .contacts__map-pic{
+    width: 100%;
+  }
+}
