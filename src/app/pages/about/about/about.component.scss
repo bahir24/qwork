@@ -1,0 +1,23 @@
+.about{
+  //height: 100vh;
+}
+
+.about__wrapper{
+  display: flex;
+  .about__wrapper--right,
+  .about__wrapper--left{
+    flex: 1;
+  }
+  .about__wrapper--left{
+    margin-right: 15px;
+  }
+  .about__wrapper--right{
+    margin-left: 15px;
+  }
+  
+
+}
+.about__text{
+  font-size: 24px;
+  margin-bottom: 30px;
+}

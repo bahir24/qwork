@@ -1,6 +1,6 @@
-<p-galleria [value]="images" [(visible)]="displayCustom" [activeIndex]="activeIndex" 
+<p-galleria [value]="images" [(visible)]="displayCustom" [activeIndex]="activeIndex"
             [containerStyle]="{'max-width': '80vw'}" [numVisible]="7"
-            [circular]="true" [fullScreen]="true" [showItemNavigators]="true" 
+            [circular]="true" [fullScreen]="true" [showItemNavigators]="true"
             [showThumbnails]="false" [baseZIndex]="100000">
     <ng-template pTemplate="item" let-item>
         <img [src]="item.previewImageSrc" [alt]="item.alt">
