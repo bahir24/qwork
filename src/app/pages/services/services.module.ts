@@ -6,6 +6,9 @@ import {CarouselComponent} from './carousel/carousel.component';
 import {CarouselModule} from "primeng/carousel";
 import {AccordionComponent} from './accordion/accordion.component';
 import {AccordionModule} from "primeng/accordion";
+import { FilterComponent } from './filter/filter.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextModule} from "primeng/inputtext";
 
 
 @NgModule({
@@ -13,12 +16,15 @@ import {AccordionModule} from "primeng/accordion";
         ServicesComponent,
         SearchComponent,
         CarouselComponent,
-        AccordionComponent
+        AccordionComponent,
+        FilterComponent
     ],
     imports: [
         CommonModule,
         CarouselModule,
-        AccordionModule
+        AccordionModule,
+        DropdownModule,
+        InputTextModule,
     ]
 })
 export class ServicesModule {

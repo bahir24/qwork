@@ -46,23 +46,7 @@
     width: 100%;
 }
 
-.p-inputgroup-addon:first-child,
-.p-inputgroup button:first-child,
-.p-inputgroup input:first-child,
-.p-inputgroup > .p-inputwrapper:first-child > .p-component,
-.p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-}
 
-.p-inputgroup-addon:last-child,
-.p-inputgroup button:last-child,
-.p-inputgroup input:last-child,
-.p-inputgroup > .p-inputwrapper:last-child > .p-component,
-.p-inputgroup > .p-inputwrapper:last-child > .p-component > .p-inputtext {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-}
 
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-element,
@@ -83,15 +67,6 @@
     border-radius: 6px;
 }
 
-.p-inputgroup-addon {
-    background: #e9ecef;
-    color: #6c757d;
-    border-top: 1px solid #ced4da;
-    border-left: 1px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
-    padding: 0.75rem 0.75rem;
-    min-width: 3rem;
-}
 
 .p-fluid .p-inputtext {
     width: 100%;
@@ -102,12 +77,6 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-}
-
-.p-inputgroup-addon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .p-inputgroup .p-float-label {
@@ -123,8 +92,6 @@
     flex: 1 1 auto;
     width: 1%;
 }
-
-
 
 .p-input-icon-left,
 .p-input-icon-right {
