@@ -97,19 +97,15 @@
             <div class="order__service">
                 <div class="order__service--content">
                     <div class="order__service--image">
-                        <img src="/assets/img/art/art-4.jpg" alt="service" class="order__service--image-pic">
+                        <img src="{{ service.img }}" alt="service" class="order__service--image-pic">
                     </div>
                     <div class="order__service--desc">
-                        <h4 class="order__service--desc--head">Название программы</h4>
-                        <h5 class="order__service--desc--subhead">тип программы</h5>
+                        <h4 class="order__service--desc--head">{{ service.title }}</h4>
+                        <h5 class="order__service--desc--subhead">{{ service.category.title }}</h5>
                         <div class="order__service--desc--table">
-                            <div class="order-service__row">
-                                <p class="order-service__head">Возраст</p>
-                                <p class="order-service__data">4-7 лет</p>
-                            </div>
-                            <div class="order-service__row">
-                                <p class="order-service__head">Длительность</p>
-                                <p class="order-service__data">45 минут</p>
+                            <div *ngFor="let data of service.data;" class="order-service__row">
+                                <p class="order-service__head">{{ data.key }}</p>
+                                <p class="order-service__data">{{ data.value }}</p>
                             </div>
                         </div>
                     </div>
@@ -119,3 +115,4 @@
         </div>
     </div>
 </section>
+<app-related></app-related>

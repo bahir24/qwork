@@ -1,0 +1,23 @@
+.categories__row {
+  display: flex;
+  margin-bottom: 40px;
+
+  .category_desc--head {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .category_desc--text {
+    font-size: 24px;
+  }
+  
+  &:nth-child(2n-1){
+    flex-direction: row-reverse;
+
+    .category_desc--head,
+    .category_desc--text {
+      text-align: right;
+    }
+  }
+}

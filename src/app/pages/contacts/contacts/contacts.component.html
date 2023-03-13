@@ -3,17 +3,14 @@
         <h2 class="section__head">НАШИ контакты</h2>
         <div class="contacts__wrapper">
             <div class="contacts__table">
-                <div class="contacts__table--row">
-                    <p class="contacts__table--head">Email</p>
-                    <p class="contacts__table--data">mail@mail.com</p>
-                </div>
-                <div class="contacts__table--row">
-                    <p class="contacts__table--head">Адрес</p>
-                    <p class="contacts__table--data">г. Санкт-Петербург, ул. Малая Конюшенная, д. 25, оф. 235</p>
-                </div>
-                <div class="contacts__table--row">
-                    <p class="contacts__table--head">Телефон</p>
-                    <p class="contacts__table--data">+7(999)999-99-99</p>
+                <div *ngFor="let item of contact;">
+                    <div class="contacts__table--row">
+                            <div *ngIf="item[0] === 'email'" class="contacts__table--head">Email</div>
+                            <div *ngIf="item[0] === 'phone'" class="contacts__table--head">Телефон</div>
+                            <div *ngIf="item[0] === 'address'" class="contacts__table--head">Адрес</div>
+                            <div *ngIf="item[0] === 'city'" class="contacts__table--head">Город</div>
+                        <p class="contacts__table--data">{{ item[0] === 'city' ? item[1].title : item[1] }}</p>
+                    </div>
                 </div>
             </div>
             <div class="contacts__map">

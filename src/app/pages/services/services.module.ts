@@ -9,6 +9,7 @@ import {AccordionModule} from "primeng/accordion";
 import { FilterComponent } from './filter/filter.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from "primeng/inputtext";
+import {MainModule} from "../main/main.module";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {InputTextModule} from "primeng/inputtext";
         AccordionModule,
         DropdownModule,
         InputTextModule,
+        MainModule,
     ]
 })
 export class ServicesModule {
