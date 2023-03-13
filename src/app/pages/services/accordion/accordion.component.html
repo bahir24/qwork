@@ -1,112 +1,63 @@
 <section class="accordion">
     <div class="container">
         <h2 class="section__head">Программы для площадок</h2>
-
-        <p-accordion iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">
-            <p-accordionTab header="Утренник в детском саду" [selected]="true" class="accordion__item">
+        <p-accordion  iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">
+            <p-accordionTab *ngFor="let service of services;let start = first;"  header="{{ service.title }}" [selected]="start" ngClass="accordion__item">
                 <div class="accordion__item--content">
                     <div class="accordion__content--left">
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">Сюжет:</h3>
-                            <p class="accordion__paragraph--text">Worem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-                                fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
-                                Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
+                        <h3 class="accordion__content--head">{{ service.subTitle }}</h3>
+                        <div *ngFor="let data of service.data;" class="accordion__paragraph">
+                            <h4 class="accordion__paragraph--head">{{ data.key }}</h4>
+                            <p class="accordion__paragraph--text">{{ data.value }}</p>
                         </div>
                         <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">игры:</h3>
-                            <ul class="accordion__paragraph--list">
-                                <li class="accordion__paragraph--item">заморожу</li>
-                                <li class="accordion__paragraph--item">рукавичка</li>
-                                <li class="accordion__paragraph--item">ещё</li>
-                            </ul>
+                            <p class="accordion__paragraph--text">{{ service.desc }}</p>
                         </div>
+<!--                        <div class="accordion__paragraph">-->
+<!--                            <h3 class="accordion__paragraph&#45;&#45;head">игры:</h3>-->
+<!--                            <ul class="accordion__paragraph&#45;&#45;list">-->
+<!--                                <li class="accordion__paragraph&#45;&#45;item">заморожу</li>-->
+<!--                                <li class="accordion__paragraph&#45;&#45;item">рукавичка</li>-->
+<!--                                <li class="accordion__paragraph&#45;&#45;item">ещё</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </div>
                     <div class="accordion__content--right">
-                        <img src="/assets/img/art/art-4.jpg" alt="service image" class="accordion__image">
+                        <img src="{{ service.img }}" alt="Картинка услуги" class="accordion__image">
                     </div>
                 </div>
-            </p-accordionTab>
-            <p-accordionTab header="дискотеки для школьников" class="accordion__item">
-                <div class="accordion__item--content">
-                    <div class="accordion__content--left">
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">Сюжет:</h3>
-                            <p class="accordion__paragraph--text">Worem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-                                fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
-                                Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
-                        </div>
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">игры:</h3>
-                            <ul class="accordion__paragraph--list">
-                                <li class="accordion__paragraph--item">заморожу</li>
-                                <li class="accordion__paragraph--item">рукавичка</li>
-                                <li class="accordion__paragraph--item">ещё</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="accordion__content--right">
-                        <img src="/assets/img/art/art-4.jpg" alt="service image" class="accordion__image">
-                    </div>
-                </div>
-
-            </p-accordionTab>
-            <p-accordionTab header="корпоративные ёлки" class="accordion__item">
-                <div class="accordion__item--content">
-                    <div class="accordion__content--left">
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">Сюжет:</h3>
-                            <p class="accordion__paragraph--text">Worem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-                                fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
-                                Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
-                        </div>
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">игры:</h3>
-                            <ul class="accordion__paragraph--list">
-                                <li class="accordion__paragraph--item">заморожу</li>
-                                <li class="accordion__paragraph--item">рукавичка</li>
-                                <li class="accordion__paragraph--item">ещё</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="accordion__content--right">
-                        <img src="/assets/img/art/art-4.jpg" alt="service image" class="accordion__image">
-                    </div>
-                </div>
-
-            </p-accordionTab>
-            <p-accordionTab header="новогодние квесты" class="accordion__item">
-                <div class="accordion__item--content">
-                    <div class="accordion__content--left">
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">Сюжет:</h3>
-                            <p class="accordion__paragraph--text">Worem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-                                fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
-                                Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
-                        </div>
-                        <div class="accordion__paragraph">
-                            <h3 class="accordion__paragraph--head">игры:</h3>
-                            <ul class="accordion__paragraph--list">
-                                <li class="accordion__paragraph--item">заморожу</li>
-                                <li class="accordion__paragraph--item">рукавичка</li>
-                                <li class="accordion__paragraph--item">ещё</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="accordion__content--right">
-                        <img src="/assets/img/art/art-4.jpg" alt="service image" class="accordion__image">
-                    </div>
-                </div>
-
-
             </p-accordionTab>
         </p-accordion>
         <div class="p-accordion-header-link p-accordion-header-link__empty">
             <span class="p-accordion-header-text">empty</span>
         </div>
     </div>
-
 </section>
+        
+        
+        
+        
+<!--        <p-accordion iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">-->
+<!--            -->
+<!--            <p-accordionTab *ngFor="let service of services;let i = index;" header="{{ service.title }}" [selected]="{ i: false }" ngClass="accordion__item">-->
+<!--                <div class="accordion__item&#45;&#45;content">-->
+<!--                    <div class="accordion__content&#45;&#45;left">-->
+<!--                        <div *ngFor="let data of service.data;" class="accordion__paragraph">-->
+<!--                            <h3 class="accordion__paragraph&#45;&#45;head">{{ data.key }}</h3>-->
+<!--                            <p class="accordion__paragraph&#45;&#45;text">{{ data.value }}</p>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                        <div class="accordion__paragraph">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3 class="accordion__paragraph&#45;&#45;head">игры:</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <ul class="accordion__paragraph&#45;&#45;list">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li class="accordion__paragraph&#45;&#45;item">заморожу</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li class="accordion__paragraph&#45;&#45;item">рукавичка</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li class="accordion__paragraph&#45;&#45;item">ещё</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="accordion__content&#45;&#45;right">-->
+<!--                        <img src="{{ service.img }}" alt="Картинка услуги" class="accordion__image">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </p-accordionTab>-->
+<!--        </p-accordion>-->

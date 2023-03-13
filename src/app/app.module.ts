@@ -9,6 +9,7 @@ import {MainModule} from "./pages/main/main.module";
 import {MenubarModule} from 'primeng/menubar';
 import {ImageModule} from "primeng/image";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ServicesModule} from "./pages/services/services.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     AppRoutingModule,
     MainModule,
+    ServicesModule,
     MenubarModule,
     ImageModule
   ],

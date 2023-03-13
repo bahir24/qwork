@@ -1,33 +1,33 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ServicesComponent} from './services/services.component';
 import {SearchComponent} from './search/search.component';
-import {CarouselComponent} from './carousel/carousel.component';
 import {CarouselModule} from "primeng/carousel";
-import {AccordionComponent} from './accordion/accordion.component';
-import {AccordionModule} from "primeng/accordion";
-import { FilterComponent } from './filter/filter.component';
+import {FilterComponent} from './filter/filter.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from "primeng/inputtext";
-import {MainModule} from "../main/main.module";
+import {MansoryComponent} from './mansory/mansory.component';
+import {ServicesComponent} from "./services/services.component";
+import {CarouselComponent} from "./carousel/carousel.component";
+import {AccordionComponent} from "./accordion/accordion.component";
+import {AccordionModule} from "primeng/accordion";
 
 
 @NgModule({
-    declarations: [
-        ServicesComponent,
-        SearchComponent,
-        CarouselComponent,
-        AccordionComponent,
-        FilterComponent
-    ],
-    imports: [
-        CommonModule,
-        CarouselModule,
-        AccordionModule,
-        DropdownModule,
-        InputTextModule,
-        MainModule,
-    ]
+  declarations: [
+    ServicesComponent,
+    SearchComponent,
+    FilterComponent,
+    MansoryComponent,
+    CarouselComponent,
+    AccordionComponent
+  ],
+  imports: [
+    CommonModule,
+    CarouselModule,
+    DropdownModule,
+    InputTextModule,
+    AccordionModule,
+  ],
 })
 export class ServicesModule {
 }

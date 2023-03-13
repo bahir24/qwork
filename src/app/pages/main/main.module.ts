@@ -10,6 +10,8 @@ import {RelatedComponent} from "../related/related/related.component";
 import {CategoriesComponent} from './categories/categories.component';
 import {EmployeesComponent} from "../employees/employees/employees.component";
 import {CarouselModule} from "primeng/carousel";
+import {DropdownModule} from "primeng/dropdown";
+import {CalendarModule} from "primeng/calendar";
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {CarouselModule} from "primeng/carousel";
     CommonModule,
     InputTextModule,
     InputTextareaModule,
-    CarouselModule
+    CarouselModule,
+    DropdownModule,
+    CalendarModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

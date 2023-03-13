@@ -41,8 +41,6 @@ export class StrengthsComponent {
     ];
 
     this.groupedStrengths = this.chunkArray(this.strengths, this.blockInLine);
-    
-    
   }
 
   chunkArray(arr: Strength[], length: number): Strength[][] {
