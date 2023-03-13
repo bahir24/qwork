@@ -1,4 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {IService} from "../../../models/service";
 
 @Component({
   selector: 'app-accordion',
@@ -7,4 +8,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AccordionComponent {
+  @Input() services: IService[] = [];
+  
 }

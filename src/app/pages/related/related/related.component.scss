@@ -1,0 +1,69 @@
+.related-services__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 30%;
+  padding: 20px;
+}
+
+.service__img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  filter: grayscale(100) brightness(0.3);
+  z-index: -1;
+  .service__img-pic{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.service-1::before {
+  background: center/cover url(/assets/img/art/art-1.jpg) no-repeat;
+}
+
+.service-2::before {
+  background: center/cover url(/assets/img/art/art-3.jpg) no-repeat;
+}
+
+.service-3::before {
+  background: center/cover url(/assets/img/art/art-4.jpg) no-repeat;
+}
+
+
+.service__head {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.service__subhead {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.service__params--row {
+  display: flex;
+}
+
+.service__params {
+  margin-bottom: 20px;
+}
+
+.service__params--head,
+.service__params--data {
+  flex: 1;
+  color: #fff;
+}

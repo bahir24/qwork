@@ -1,3 +1,8 @@
+:host{
+  flex-grow: 1;
+}
+
+
 .order{
   //height: 100vh;
 }
@@ -51,12 +56,31 @@
 
 
 .p-inputgroup > .p-component,
+.p-inputgroup > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-element,
 .p-inputgroup > .p-inputwrapper > .p-component > .p-inputtext,
 .p-inputgroup > .p-float-label > .p-component {
   border-radius: 0;
   margin: 0;
 }
+
+.p-datepicker {
+  padding: 0.5rem;
+  background: #ffffff;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+.p-calendar{
+  > .p-calendar-clear-icon{
+    right: 10px;
+  }
+  .p-component{
+    border-bottom-left-radius: 0!important;
+    border-top-left-radius: 0!important;
+  }
+} 
 
 .p-inputtext {
   font-size: 1rem;
@@ -119,6 +143,9 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  .order__form--textarea{
+    width:100%;
+  }
   .order__form--input{
     flex: 1;
     &:first-child{

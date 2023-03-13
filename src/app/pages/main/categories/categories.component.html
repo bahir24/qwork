@@ -1,0 +1,18 @@
+<section class="categories">
+    <div class="container">
+        <h2 class="section__head section__head--y-offset">мы предлагаем</h2>
+        
+        <div *ngFor="let category of categories;" class="categories__row">
+            <div class="icon">
+                <svg class="icon__pic">
+                    <use attr.xlink:href="/assets/img/sprite.svg#{{ category.icon }}"></use>
+                </svg>
+            </div>
+            <div class="category__desc">
+                <h3 class="category_desc--head">{{ category.title }}</h3>
+                <p class="category_desc--text">{{ category.desc }}</p>
+            </div>
+        </div>
+        
+    </div>
+</section>

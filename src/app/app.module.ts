@@ -9,26 +9,25 @@ import {MainModule} from "./pages/main/main.module";
 import {MenubarModule} from 'primeng/menubar';
 import {ImageModule} from "primeng/image";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AboutModule} from "./pages/about/about.module";
+import {ServicesModule} from "./pages/services/services.module";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        MainModule,
-        AboutModule,
-        MenubarModule,
-        ImageModule,
-        
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MainModule,
+    ServicesModule,
+    MenubarModule,
+    ImageModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

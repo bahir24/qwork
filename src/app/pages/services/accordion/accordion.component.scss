@@ -41,6 +41,18 @@
     .accordion__content--right {
         width: 50%;
     }
+    .accordion__content--left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 20px;
+        padding-top: 20px;
+    }
+    .accordion__content--head{
+        font-size: 46px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
 }
 
 .accordion__image {

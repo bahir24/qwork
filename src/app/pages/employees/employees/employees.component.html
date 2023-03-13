@@ -1,0 +1,20 @@
+<section class="employees">
+    <div class="container">
+        <h2 class="section__head section__head--y-offset">Сотрудники</h2>
+        <p-carousel [value]="employees" [circular]="true"  [showNavigators]="true" [showIndicators]="false" 
+                    contentClass="employees-content" styleClass="employees__slider">
+            <ng-template let-employee pTemplate="employee">
+                <div class="employee-type">
+                    <div class="employee-type__image">
+                        <img src="{{ employee.img }}" alt="employee pic" class="employee-type__image-pic">
+                    </div>
+                    <div class="employee-type__desc">
+                        <h3 class="employee-type__head">{{ employee.title }}</h3>
+                        <h4 class="employee-type__subhead">{{ employee.subTitle }}</h4>
+                        <p *ngFor="let paragraph of employee.desc" class="employee-type__paragraph">{{ paragraph }}</p>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</section>

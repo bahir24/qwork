@@ -14,15 +14,11 @@ $textColor: #000;
     color: $textColor;
 }
 
-body, html{
-    min-height: 100vh;
-    height: 100%;
-    
-}
-
 body{
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    margin:0;
 }
 
 .container {
@@ -87,6 +83,32 @@ section {
 }
 
 
+
+.icon__socials{
+    width: 45px;
+    height: 45px;
+    .icon__pic{
+        fill: #606060;
+        display:block;
+        width:100%;
+        height:100%;
+    }
+    &:hover{
+        .icon__pic{
+            fill: #181818;
+            display:block;
+            width:100%;
+            height:100%;
+        }
+        
+    }
+}
+
+.p-inputgroup .p-element .p-dropdown{
+    width:100%!important;
+}
+
+
 .p-inputgroup-addon:first-child,
 .p-inputgroup button:first-child,
 .p-inputgroup input:first-child,
@@ -146,25 +168,6 @@ section {
         background-color: transparent;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .p-galleria-item-nav-onhover .p-galleria-item-nav {
@@ -387,9 +390,6 @@ section {
 }
 
 
-
-
-
 .p-galleria .p-galleria-close {
     margin: 0.5rem;
     color: #efefef;
@@ -598,4 +598,149 @@ section {
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     appearance: none;
     border-radius: 6px;
+}
+
+.p-dropdown {
+    width: 100%;
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+    .p-dropdown-label.p-placeholder {
+        color: #6c757d;
+    }
+    .p-dropdown-label {
+        background: transparent;
+        border: 0 none;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        flex: 1 1 auto;
+        width: 1%;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+    .p-dropdown-trigger {
+        background: transparent;
+        color: #6c757d;
+        width: 3rem;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .p-dropdown-clear-icon {
+        color: #6c757d;
+        right: 3rem;
+        position: absolute;
+        top: 50%;
+        margin-top: -0.5rem;
+    }
+    .group-label{
+        margin-bottom: 10px;
+    }
+}
+
+
+.layout-wrapper .layout-content .content-section.implementation {
+    color: var(--text-color);
+}
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+    padding-right: .5rem;
+}
+
+.p-overlay-content {
+    transform-origin: inherit;
+}
+.p-dropdown-panel {
+    background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    .p-dropdown-items {
+        padding: 0.75rem 0;
+
+        .p-dropdown-item {
+            margin: 0;
+            padding: 0.75rem 1.25rem;
+            border: 0 none;
+            color: #495057;
+            background: transparent;
+            transition: box-shadow 0.2s;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 400;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            &:not(.p-highlight):not(.p-disabled):hover {
+                color: #495057;
+                background: #e9ecef;
+            }
+        }
+    }
+}
+
+.inputs__container {
+    display: flex;
+    > * {
+        margin-right: 15px;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.form__group--label {
+    color: #626262;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+
+
+
+.p-carousel-container {
+  position: relative;
+  height: 60vh;
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    position: absolute;
+    height: 100%;
+    z-index: 20;
+
+    span {
+      display: block;
+      padding: 15px;
+      border: 1px solid #9a9a9a;
+      border-radius: 50%;
+      font-size: 18px;
+      color: #9a9a9a;
+      z-index: 20;
+    }
+
+    &:hover span {
+      border-color: black;
+      color: black;
+    }
+  }
+
+  .p-carousel-prev {
+    left: 0;
+    padding-left: 20px
+  }
+
+  .p-carousel-next {
+    right: 0;
+    padding-right: 20px
+  }
 }
