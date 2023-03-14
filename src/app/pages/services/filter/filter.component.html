@@ -2,11 +2,22 @@
     <div class="container">
         <div class="filter__wrapper">
             
-            <div class="form__group">
-                <span class="form__group--label">Город</span>
-                <p-dropdown [options]="[{name:'Санкт-Петербург'},{name:'Москва'},{name:'Новосибирск'}]"
-                    optionLabel="name" [showClear]="true" placeholder="Выберите город"></p-dropdown>
-            </div>
+<!--            <div class="form__group">-->
+<!--                <span class="form__group&#45;&#45;label">Город</span>-->
+<!--                <p-dropdown [options]="[{name:'Санкт-Петербург'},{name:'Москва'},{name:'Новосибирск'}]"-->
+<!--                    optionLabel="name" [showClear]="true" placeholder="Выберите город"></p-dropdown>-->
+<!--            </div>-->
+            
+                <div class="form__group">
+                    <span class="form__group--label">Категория</span>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                        <p-dropdown [options]="categories" optionLabel="title" [showClear]="true"
+                                    placeholder="Выберите категорию"></p-dropdown>
+                    </div>
+                </div>
+            
+            
             
             <div class="form__group">
                 <span class="form__group--label">Количество участников</span>
@@ -18,8 +29,11 @@
 
             <div class="form__group">
                 <span class="form__group--label">Длительность</span>
-                <p-dropdown [options]="[{time:'15 минут'},{time:'45 минут'},{time:'2 часа'}]"
-                    optionLabel="time" [showClear]="true" placeholder="Длительность"></p-dropdown>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                    <p-dropdown [options]="[{time:'15 минут'},{time:'45 минут'},{time:'2 часа'}]" optionLabel="name" [showClear]="true"
+                                placeholder="Длительность"></p-dropdown>
+                </div>
             </div>
 
             <div class="form__group">

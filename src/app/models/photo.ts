@@ -1,4 +1,4 @@
-export interface Photo {
+export interface IPhoto {
     img: string,
     thumb: string,
     service: number,
