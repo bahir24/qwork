@@ -104,12 +104,13 @@ section {
   }
 }
 
-.icon__dropdown{
+.icon__dropdown {
   width: 1em;
   height: 1em;
   margin-right: 7px;
+
   .icon__pic {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: flex-end;
     fill: #181818;
@@ -130,7 +131,6 @@ section {
 //Input icon styles
 .p-inputgroup-addon:first-child,
 .p-inputgroup button:first-child,
-
 .p-inputgroup > .p-inputwrapper:first-child > .p-component,
 .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
   border-top-left-radius: 6px !important;
@@ -166,6 +166,15 @@ section {
 }
 
 
+.p-inputgroup{
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  .p-inputgroup-addon,
+  .p-inputtext{
+    border:none;
+  }
+}
+
 .p-inputtext {
   font-size: 1rem;
   color: #495057;
@@ -174,35 +183,69 @@ section {
   //border: 1px solid #ced4da;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   appearance: none;
-  //border-radius: 6px;
-}
 
-.p-inputwrapper{
-  &:focus-visible{
+  &:focus-visible {
     outline: none;
   }
-  .p-calendar{
-    &:focus-visible{
+}
+
+.p-inputwrapper {
+  &:focus-visible {
+    outline: none;
+  }
+
+  .p-calendar {
+    &:focus-visible {
       outline: none;
     }
-    .p-calendar-clear-icon{
+
+    .p-calendar-clear-icon {
       right: 15px;
     }
-    .p-inputtext{
-      &:focus-visible{
-        outline: none;
-      }
-      border: 1px solid #ced4da;
-    }
-    .p-datepicker{
+    .p-datepicker {
       background: #fff;
-      .p-datepicker-calendar{
-        thead th{
+
+      .p-yearpicker {
+        .p-yearpicker-year {
+          margin-bottom: 10px;
+          width: 33%;
+          border-radius: 1em;
+
+          &:hover {
+            background: #00000082;
+            color: #fff;
+          }
+        }
+      }
+
+      .p-monthpicker {
+        .p-monthpicker-month {
+          margin-bottom: 10px;
+          border-radius: 1em;
+
+          &:hover {
+            background: #00000082;
+            color: #fff;
+          }
+        }
+      }
+
+      .p-datepicker-calendar {
+        thead th {
           padding-bottom: 15px;
         }
-        tr td{
+
+        tr td {
           padding-bottom: 10px;
-          .p-ripple{
+
+          &.p-datepicker-other-month {
+            .p-ripple {
+              color: grey;
+            }
+
+          }
+
+          .p-ripple {
             display: flex;
             justify-content: center;
             /* padding: 0px; */
@@ -214,25 +257,49 @@ section {
             width: 2em;
             height: 2em;
             border-radius: 50%;
-            &:hover{
+
+            &:hover {
               background: #00000082;
-              color:#fff;
+              color: #fff;
             }
           }
         }
       }
-      .p-datepicker-header{
-        padding: 10px 10px 15px;
-        .p-datepicker-month{
-          margin-right:5px;
+
+      .p-datepicker-header {
+        .p-datepicker-title {
+          margin: 10px 0 10px;
         }
+
+        //margin: 0  15px;
+
+        .p-ripple {
+          height: 3em;
+          width: 3em;
+
+          &:hover {
+            background: #00000082;
+
+            span:before {
+              color: #fff;
+            }
+
+          }
+
+        }
+
+        .p-datepicker-month {
+          margin-right: 5px;
+        }
+
         .p-datepicker-month,
-        .p-datepicker-year{
+        .p-datepicker-year {
           font-size: 20px;
         }
       }
     }
   }
+
 
   .p-dropdown {
     width: 100%;
@@ -242,40 +309,27 @@ section {
     -webkit-user-select: none;
     user-select: none;
     background: #ffffff;
-
-    border: 1px solid #ced4da;
-
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-
-    .p-dropdown-label.p-placeholder {
-      color: #6c757d;
+    .p-dropdown-label {
+      .p-placeholder {
+        color: #6c757d;
+      }
     }
 
-    //.p-dropdown-label {
-    //  background: transparent;
-    //  border: 0 none;
-    //  display: block;
-    //  white-space: nowrap;
-    //  overflow: hidden;
-    //  flex: 1 1 auto;
-    //  width: 1%;
-    //  text-overflow: ellipsis;
-    //  cursor: pointer;
-    //}
-
-    .p-overlay{
-      .p-overlay-content{
-        .p-dropdown-panel{
-          .p-dropdown-items-wrapper{
-            .p-dropdown-items{
-              .p-dropdown-item-group{
-                .group-label{
-                  .group-label__text{
+    .p-overlay {
+      .p-overlay-content {
+        .p-dropdown-panel {
+          .p-dropdown-items-wrapper {
+            .p-dropdown-items {
+              .p-dropdown-item-group {
+                .group-label {
+                  .group-label__text {
                     overflow: hidden;
                   }
                 }
               }
-              .p-element{
+
+              .p-element {
 
               }
 
@@ -286,7 +340,6 @@ section {
         }
       }
     }
-
 
     .p-dropdown-trigger {
       background: transparent;
@@ -298,6 +351,10 @@ section {
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+
+      &:hover {
+        background: #00000082;
+      }
     }
 
     .p-dropdown-clear-icon {
@@ -314,18 +371,10 @@ section {
     }
   }
 
-
-  .p-calendar-clearable{
+  .p-calendar-clearable {
 
   }
-
-
 }
-
-
-
-
-
 
 .layout-wrapper .layout-content .content-section.implementation {
   color: var(--text-color);
@@ -387,6 +436,14 @@ section {
   color: #626262;
   text-transform: capitalize;
   margin-bottom: 5px;
+
+}
+
+.order__form--textarea{
+  .p-inputtextarea{
+    border: 1px solid #ced4da;
+    resize: none;
+  }
 }
 
 /*
