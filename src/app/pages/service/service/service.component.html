@@ -1,52 +1,27 @@
 <section class="service">
     <div class="container">
-        
-        
-        <h1 class="section__head">Спектакли в пригородных посёлках</h1>
+        <h1 class="section__head">{{ service.title }}</h1>
         <div class="service__wrapper">
-            
-            
             <div class="service__wrapper--left">
                 <div class="service__data">
-                    <h2 class="section__subhead">УЛИчные гуляния</h2>
-                    <div class="service__data--row">
-                        <h5 class="service__data--head">Возраст</h5>
-                        <p class="service__data--data">от 4 до 80 лет</p>
+                    <h2 class="section__subhead">{{ service.subTitle }}</h2>
+                    <div *ngFor="let data of service.data;" class="service__data--row">
+                        <h5 class="service__data--head">{{ data.key }}</h5>
+                        <p class="service__data--data">{{ data.value }}</p>
                     </div>
                     <div class="service__data--row">
-                        <h5 class="service__data--head">Длительность</h5>
-                        <p class="service__data--data">от 45 минут до 3 часов</p>
+                        <p class="service__data--desc">{{ service.desc }}</p>
                     </div>
-                    <div class="service__data--row">
-                        <h5 class="service__data--head">Количество участников</h5>
-                        <p class="service__data--data">20-80</p>
-                    </div>
-                    <div class="service__data--row">
-                        <h5 class="service__data--head">Элементы программы:</h5>
-                        <ul class="service__data--list">
-                            <li class="service__data--item">Игры</li>
-                            <li class="service__data--item">Конкурсы</li>
-                            <li class="service__data--item">Раздача подарков</li>
-                            <li class="service__data--item">Танцы</li>
-                        </ul>
-                    </div>
-                    
                 </div>
                 <div class="service__data--row service__data--row--divided service__data--row--nomb">
                     <button class="button">К списку программ</button>
                     <button class="button">Заказать</button>
                 </div>
             </div>
-            
-            
             <div class="service__wrapper--right">
                 <app-gallery></app-gallery>
             </div>
-            
-            
         </div>
-        
-        
         <div class="service__bottom">
             <div class="service__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corporis
                 deserunt distinctio dolorem enim expedita omnis quod tempora tenetur? Doloremque exercitationem officia
@@ -59,3 +34,4 @@
         </div>
     </div>
 </section>
+<app-related></app-related>

@@ -13,6 +13,7 @@
 .card{
     position: relative;
     width: 32%;
+    min-height: 30vh;
     margin-bottom: 2%;
     margin-right: 2%;
     display: flex;
@@ -31,8 +32,10 @@
         left: 0;
         z-index: -10;
         
+        
         .card__image--pic{
             width: 100%;
+            object-fit: cover;
             height: 100%;
             filter: grayscale(.5) brightness(.5);
             border-radius: 10px;

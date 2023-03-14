@@ -45,8 +45,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  max-width:60vw!important;
+  max-height:70vh!important;
+  .gallery__content-image{
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover!important;
+  }
 }
 
 

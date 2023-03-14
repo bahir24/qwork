@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ServiceComponent} from './service/service.component';
-import {GalleryComponent} from "../gallery/gallery/gallery.component";
-import {GalleriaModule} from "primeng/galleria";
+import {RelatedModule} from "../related/related.module";
+import {GalleryModule} from "../gallery/gallery.module";
 
 
 @NgModule({
     declarations: [
-        ServiceComponent,
-        GalleryComponent,
+        ServiceComponent
     ],
     exports: [
-        GalleryComponent
     ],
     imports: [
         CommonModule,
-        GalleriaModule
-    ]
+        RelatedModule,
+      GalleryModule
+    ],
+    
 })
 export class ServiceModule {}
