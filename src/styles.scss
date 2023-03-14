@@ -104,10 +104,24 @@ section {
   }
 }
 
+.icon__dropdown{
+  width: 1em;
+  height: 1em;
+  margin-right: 7px;
+  .icon__pic {
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    fill: #181818;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 /*
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
  */
 .p-inputgroup .p-element .p-dropdown {
   width: 100% !important;
@@ -116,7 +130,7 @@ section {
 //Input icon styles
 .p-inputgroup-addon:first-child,
 .p-inputgroup button:first-child,
-.p-inputgroup input:first-child,
+
 .p-inputgroup > .p-inputwrapper:first-child > .p-component,
 .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
   border-top-left-radius: 6px !important;
@@ -128,6 +142,7 @@ section {
 //Input styles
 .p-inputgroup button:last-child,
 .p-inputgroup input:last-child,
+.p-inputgroup input:first-child,
 .p-inputgroup > .p-inputwrapper:last-child > .p-component,
 .p-inputgroup > .p-inputwrapper:last-child > .p-component > .p-inputtext {
   border-top-right-radius: 6px !important;
@@ -154,63 +169,162 @@ section {
 .p-inputtext {
   font-size: 1rem;
   color: #495057;
-  background: #ffffff;
+  //background: #ffffff;
   padding: 0.75rem 0.75rem;
-  border: 1px solid #ced4da;
+  //border: 1px solid #ced4da;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   appearance: none;
-  border-radius: 6px;
+  //border-radius: 6px;
 }
 
-.p-dropdown {
-  width: 100%;
-  display: inline-flex;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #ffffff;
-  border: 1px solid #ced4da;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  .p-dropdown-label.p-placeholder {
-    color: #6c757d;
+.p-inputwrapper{
+  &:focus-visible{
+    outline: none;
   }
-  .p-dropdown-label {
-    background: transparent;
-    border: 0 none;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    flex: 1 1 auto;
-    width: 1%;
-    text-overflow: ellipsis;
+  .p-calendar{
+    &:focus-visible{
+      outline: none;
+    }
+    .p-calendar-clear-icon{
+      right: 15px;
+    }
+    .p-inputtext{
+      &:focus-visible{
+        outline: none;
+      }
+      border: 1px solid #ced4da;
+    }
+    .p-datepicker{
+      background: #fff;
+      .p-datepicker-calendar{
+        thead th{
+          padding-bottom: 15px;
+        }
+        tr td{
+          padding-bottom: 10px;
+          .p-ripple{
+            display: flex;
+            justify-content: center;
+            /* padding: 0px; */
+            /* margin: 0px; */
+            align-items: center;
+
+            /* width: 100%; */
+            /* height: 100%; */
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            &:hover{
+              background: #00000082;
+              color:#fff;
+            }
+          }
+        }
+      }
+      .p-datepicker-header{
+        padding: 10px 10px 15px;
+        .p-datepicker-month{
+          margin-right:5px;
+        }
+        .p-datepicker-month,
+        .p-datepicker-year{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .p-dropdown {
+    width: 100%;
+    display: inline-flex;
     cursor: pointer;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    background: #ffffff;
+
+    border: 1px solid #ced4da;
+
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+    .p-dropdown-label.p-placeholder {
+      color: #6c757d;
+    }
+
+    //.p-dropdown-label {
+    //  background: transparent;
+    //  border: 0 none;
+    //  display: block;
+    //  white-space: nowrap;
+    //  overflow: hidden;
+    //  flex: 1 1 auto;
+    //  width: 1%;
+    //  text-overflow: ellipsis;
+    //  cursor: pointer;
+    //}
+
+    .p-overlay{
+      .p-overlay-content{
+        .p-dropdown-panel{
+          .p-dropdown-items-wrapper{
+            .p-dropdown-items{
+              .p-dropdown-item-group{
+                .group-label{
+                  .group-label__text{
+                    overflow: hidden;
+                  }
+                }
+              }
+              .p-element{
+
+              }
+
+            }
+          }
+
+
+        }
+      }
+    }
+
+
+    .p-dropdown-trigger {
+      background: transparent;
+      color: #6c757d;
+      width: 3rem;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .p-dropdown-clear-icon {
+      color: #6c757d;
+      right: 3rem;
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5rem;
+    }
+
+    .group-label {
+      display: flex;
+      padding: 0.75rem 0 0.75rem 0.75rem;
+    }
   }
 
-  .p-dropdown-trigger {
-    background: transparent;
-    color: #6c757d;
-    width: 3rem;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+
+  .p-calendar-clearable{
+
   }
 
-  .p-dropdown-clear-icon {
-    color: #6c757d;
-    right: 3rem;
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-  }
 
-  .group-label {
-    margin-bottom: 10px;
-  }
 }
+
+
+
+
 
 
 .layout-wrapper .layout-content .content-section.implementation {
@@ -276,16 +390,16 @@ section {
 }
 
 /*
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
- * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS 
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
+ * INPUTS INPUTS INPUTS INPUTS INPUTS INPUTS
  */
 
 
 /*
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
  */
 
 @keyframes p-component-overlay-enter-animation {
@@ -752,9 +866,9 @@ section {
 
 
 /*
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
- * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY 
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
+ * GALLERY GALLERY GALLERY GALLERY GALLERY GALLERY
  */
 
 

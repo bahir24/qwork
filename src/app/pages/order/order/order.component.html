@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="order__form--row">
                         <div class="order__form--input">
                             <div class="form__group">
@@ -82,7 +82,12 @@
                                                 placeholder="Выберите программу" [group]="true">
                                         <ng-template let-group pTemplate="group">
                                             <div class="group-label">
-                                                <span>{{group.label}}</span>
+                                                <div class="icon icon__dropdown">
+                                                    <svg class="icon__pic">
+                                                        <use attr.xlink:href="/assets/img/sprite.svg#{{ group.value }}"></use>
+                                                    </svg>
+                                                </div>
+                                                <span class="group-label__text">{{group.label}}</span>
                                             </div>
                                         </ng-template>
                                     </p-dropdown>
