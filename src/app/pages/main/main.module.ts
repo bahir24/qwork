@@ -7,6 +7,8 @@ import {EmployeesComponent} from "../employees/employees/employees.component";
 import {RelatedModule} from "../related/related.module";
 import {ContactsModule} from "../contacts/contacts.module";
 import {OrderModule} from "../order/order.module";
+import {StrengthsService} from "../../services/strengths/strengths.service";
+import {CategoriesService} from "../../services/categories/categories.service";
 
 
 @NgModule({
@@ -21,6 +23,10 @@ import {OrderModule} from "../order/order.module";
     RelatedModule,
     ContactsModule,
     OrderModule
+  ],
+  providers:[
+    StrengthsService,
+    CategoriesService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

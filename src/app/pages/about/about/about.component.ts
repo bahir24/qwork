@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Strength} from "../../../models/strength";
+import {IStrength} from "../../../models/strength";
 import {ICategory} from "../../../models/category";
 
 @Component({
@@ -8,7 +8,7 @@ import {ICategory} from "../../../models/category";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  public strengths: Strength[];
+  public strengths: IStrength[];
   public categories: ICategory[];
 
   constructor() {

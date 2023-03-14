@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {IService} from "../../../models/service";
-import {Strength} from "../../../models/strength";
 
 @Component({
   selector: 'app-mansory',
@@ -10,7 +9,7 @@ import {Strength} from "../../../models/strength";
 export class MansoryComponent {
   @Input() services: IService[] = [];
   public groupedServices: any = [];
-  
+
   ngOnInit(): void {
     this.groupedServices = this.chunkArray(this.services.reverse(), 2).reverse();
     this.services.reverse();
@@ -18,9 +17,9 @@ export class MansoryComponent {
 
   chunkArray(arr: IService[], length: number): IService[][] {
     return arr.reduce(
-      (acc: IService[][], _, index: number): IService[][] => 
-        (index % length) 
-          ? acc 
+      (acc: IService[][], _, index: number): IService[][] =>
+        (index % length)
+          ? acc
           : [...acc, arr.slice(index, index + length)],
       []);
   }

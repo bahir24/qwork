@@ -10,6 +10,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {ImageModule} from "primeng/image";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ServicesModule} from "./pages/services/services.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ServicesModule} from "./pages/services/services.module";
     MainModule,
     ServicesModule,
     MenubarModule,
-    ImageModule
+    ImageModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
