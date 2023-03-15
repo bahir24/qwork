@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IStrength} from "../../models/strength";
+import {IPhoto} from "../../models/photo";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class StrengthsService {
-
+export class PhotosService {
   constructor(
     private http: HttpClient
   ) {
   }
 
-  public getStrengths(): Observable<IStrength[]> {
-    return this.http.get<IStrength[]>('http://localhost:3000/strengths');
+  public getPhotos(): Observable<IPhoto[]> {
+    return this.http.get<IPhoto[]>('http://localhost:3000/photos');
   }
 }

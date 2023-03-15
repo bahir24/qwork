@@ -1,4 +1,4 @@
-export interface Employee {
+export interface IEmployee {
     title: string,
     subTitle: string,
     desc: string[],

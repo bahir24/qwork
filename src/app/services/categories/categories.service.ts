@@ -14,6 +14,6 @@ export class CategoriesService {
 
   public getCategories(): Observable<ICategory[]> {
 
-    return this.http.get<ICategory[]>('https://639b0c8531877e43d6805ed2.mockapi.io/api//categories');
+    return this.http.get<ICategory[]>('http://localhost:3000/categories');
   }
 }

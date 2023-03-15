@@ -1,21 +1,28 @@
 <section class="contacts">
-    <div class="container">
-        <h2 class="section__head">НАШИ контакты</h2>
-        <div class="contacts__wrapper">
-            <div class="contacts__table">
-                <div *ngFor="let item of contact;">
-                    <div class="contacts__table--row">
-                            <div *ngIf="item[0] === 'email'" class="contacts__table--head">Email</div>
-                            <div *ngIf="item[0] === 'phone'" class="contacts__table--head">Телефон</div>
-                            <div *ngIf="item[0] === 'address'" class="contacts__table--head">Адрес</div>
-                            <div *ngIf="item[0] === 'city'" class="contacts__table--head">Город</div>
-                        <p class="contacts__table--data">{{ item[0] === 'city' ? item[1].title : item[1] }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="contacts__map">
-                <img src="/assets/img/map.png" alt="map" class="contacts__map-pic">
-            </div>
+  <div class="container">
+    <h2 class="section__head">НАШИ контакты</h2>
+    <div class="contacts__wrapper">
+      <div class="contacts__table">
+        <div *ngIf="contact.email" class="contacts__table--row">
+          <div class="contacts__table--head">Email</div>
+          <p class="contacts__table--data">{{ contact.email }}</p>
         </div>
+        <div *ngIf="contact.phone" class="contacts__table--row">
+          <div class="contacts__table--head">Телефон</div>
+          <p class="contacts__table--data">{{ contact.phone }}</p>
+        </div>
+        <div *ngIf="contact.address" class="contacts__table--row">
+          <div class="contacts__table--head">Адрес</div>
+          <p class="contacts__table--data">{{ contact.address }}</p>
+        </div>
+        <div *ngIf="contact.city" class="contacts__table--row">
+          <div class="contacts__table--head">Город</div>
+          <p class="contacts__table--data">{{ contact.city.title }}</p>
+        </div>
+      </div>
+      <div class="contacts__map">
+        <img src="/assets/img/map.png" alt="map" class="contacts__map-pic">
+      </div>
     </div>
+  </div>
 </section>

@@ -9,6 +9,8 @@ import {ContactsModule} from "../contacts/contacts.module";
 import {OrderModule} from "../order/order.module";
 import {StrengthsService} from "../../services/strengths/strengths.service";
 import {CategoriesService} from "../../services/categories/categories.service";
+import {CarouselModule} from "primeng/carousel";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {CategoriesService} from "../../services/categories/categories.service";
     CommonModule,
     RelatedModule,
     ContactsModule,
-    OrderModule
+    OrderModule,
+    CarouselModule,
+    HttpClientModule
   ],
   providers:[
     StrengthsService,

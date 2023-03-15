@@ -12,8 +12,7 @@ export interface IContact extends IContactTable{
 }
 
 export interface ICity {
-    title: string,
-    id: number,
+    title: string
 }
 export interface ICoords{
     lat: string,

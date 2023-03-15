@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RelatedComponent} from "./related/related.component";
+import {ServicesService} from "../../services/services/services.service";
 
 
 
@@ -13,6 +14,9 @@ import {RelatedComponent} from "./related/related.component";
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  providers:[
+    ServicesService
+  ],
 })
 export class RelatedModule { }

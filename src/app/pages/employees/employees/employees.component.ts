@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {Employee} from "../../../models/employee";
+import {IEmployee} from "../../../models/employee";
 
 @Component({
   selector: 'app-employees',
@@ -7,7 +7,7 @@ import {Employee} from "../../../models/employee";
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent {
-  public employees: Employee[];
+  public employees: IEmployee[];
   constructor() {
     this.employees = [
       {

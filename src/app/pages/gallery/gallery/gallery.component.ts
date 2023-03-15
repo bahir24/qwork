@@ -17,97 +17,97 @@ export class GalleryComponent {
       img: '/assets/img/santa/santa-1.jpg',
       thumb: '/assets/img/santa/thumbs/santa-1.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-2.jpg',
       thumb: '/assets/img/santa/thumbs/santa-2.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-3.jpg',
       thumb: '/assets/img/santa/thumbs/santa-3.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-4.jpg',
       thumb: '/assets/img/santa/thumbs/santa-4.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-5.jpg',
       thumb: '/assets/img/santa/thumbs/santa-5.jpg',
       alt: 'Фотография галерреи',
-      service: 2
+      service: "2"
     },
     {
       img: '/assets/img/santa/santa-6.jpg',
       thumb: '/assets/img/santa/thumbs/santa-6.jpg',
       alt: 'Фотография галерреи',
-      service: 2
+      service: "2"
     },
     {
       img: '/assets/img/santa/santa-7.jpg',
       thumb: '/assets/img/santa/thumbs/santa-7.jpg',
       alt: 'Фотография галерреи',
-      service: 2
+      service: "2"
     },
     {
       img: '/assets/img/santa/santa-8.jpg',
       thumb: '/assets/img/santa/thumbs/santa-8.jpg',
       alt: 'Фотография галерреи',
-      service: 2
+      service: "2"
     },
     {
       img: '/assets/img/santa/santa-9.jpg',
       thumb: '/assets/img/santa/thumbs/santa-9.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-10.jpg',
       thumb: '/assets/img/santa/thumbs/santa-10.jpg',
       alt: 'Фотография галерреи',
-      service: 1
+      service: "1"
     },
     {
       img: '/assets/img/santa/santa-4.jpg',
       thumb: '/assets/img/santa/thumbs/santa-4.jpg',
       alt: 'Фотография галерреи',
-      service: 3
+      service: "3"
     },
     {
       img: '/assets/img/santa/santa-1.jpg',
       thumb: '/assets/img/santa/thumbs/santa-1.jpg',
       alt: 'Фотография галерреи',
-      service: 3
+      service: "3"
     },
     {
       img: '/assets/img/santa/santa-7.jpg',
       thumb: '/assets/img/santa/thumbs/santa-7.jpg',
       alt: 'Фотография галерреи',
-      service: 3
+      service: "3"
     },
     {
       img: '/assets/img/santa/santa-2.jpg',
       thumb: '/assets/img/santa/thumbs/santa-2.jpg',
       alt: 'Фотография галерреи',
-      service: 3
+      service: "3"
     },
     {
       img: '/assets/img/santa/santa-5.jpg',
       thumb: '/assets/img/santa/thumbs/santa-5.jpg',
       alt: 'Фотография галерреи',
-      service: 6
+      service: "6"
     },
     {
       img: '/assets/img/santa/santa-3.jpg',
       thumb: '/assets/img/santa/thumbs/santa-3.jpg',
       alt: 'Фотография галерреи',
-      service: 6
+      service: "6"
     },
   ];
 
@@ -121,3 +121,101 @@ export class GalleryComponent {
     this.displayCustom = true;
   }
 }
+
+//
+// {
+//   "img": "/assets/img/santa/santa-1.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-1.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-2.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-2.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-3.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-3.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-4.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-4.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-5.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-5.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864df"
+// },
+// {
+//   "img": "/assets/img/santa/santa-6.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-6.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864df"
+// },
+// {
+//   "img": "/assets/img/santa/santa-7.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-7.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864df"
+// },
+// {
+//   "img": "/assets/img/santa/santa-8.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-8.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864df"
+// },
+// {
+//   "img": "/assets/img/santa/santa-9.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-9.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-10.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-10.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864dc"
+// },
+// {
+//   "img": "/assets/img/santa/santa-4.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-4.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e0"
+// },
+// {
+//   "img": "/assets/img/santa/santa-1.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-1.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e0"
+// },
+// {
+//   "img": "/assets/img/santa/santa-7.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-7.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e0"
+// },
+// {
+//   "img": "/assets/img/santa/santa-2.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-2.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e0"
+// },
+// {
+//   "img": "/assets/img/santa/santa-5.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-5.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e1"
+// },
+// {
+//   "img": "/assets/img/santa/santa-3.jpg",
+//     "thumb": "/assets/img/santa/thumbs/santa-3.jpg",
+//   "alt": "Фотография галерреи",
+//   "service": "6411a21dbe36b216b00864e1"
+// },
