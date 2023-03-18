@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ICategory} from "../../../models/category";
-import {Subject, takeUntil} from "rxjs";
 import {CategoriesService} from "../../../services/categories/categories.service";
 
 @Component({
@@ -9,22 +8,18 @@ import {CategoriesService} from "../../../services/categories/categories.service
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+
+  setCategories(categories: ICategory[]) {
+    this.categories = categories;
+  }
+
   public categories!: ICategory[];
-  private unsubscribeNotifier = new Subject<void>();
-  constructor(
-    private readonly categoryService: CategoriesService,
-  ) {
+
+  constructor(private readonly categoryService: CategoriesService) {
   }
 
   ngOnInit(): void {
-
-    this.categoryService.getCategories().pipe(takeUntil(this.unsubscribeNotifier))
-      .subscribe((categories: ICategory[]) => {
-          this.categories = categories;
-          console.log(categories);
-        },
-        (error) => console.log('categories error',  error));
-
-    // console.log(this.example2);
+    this.categoryService.getCategories()
+      .subscribe((categories: ICategory[]) => {this.setCategories(categories)});
   }
 }

@@ -7,7 +7,6 @@ import {catchError, Observable, Subject, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class ContactsService {
-  private unsubscribeNotifier = new Subject<void>();
   constructor(
     private http: HttpClient,
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, Observable, throwError} from "rxjs";
 import {ICategory} from "../../models/category";
 
 @Injectable({
@@ -13,7 +13,18 @@ export class CategoriesService {
   ) { }
 
   public getCategories(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>('http://localhost:3000/categories')
+      .pipe(catchError(this.handleError));
+  }
 
-    return this.http.get<ICategory[]>('http://localhost:3000/categories');
+
+  private handleError(error: HttpErrorResponse){
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }
