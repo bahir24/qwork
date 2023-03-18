@@ -14,11 +14,11 @@ export class ContactsService {
   }
 
   public getContacts(): Observable<IContact[]> {
-    return this.http.get<IContact[]>('http://localhost:3000/contacts');
+    return this.http.get<IContact[]>('http://178.208.86.93:3000/contacts');
   }
 
   public getContactByCityId(cityId: string): Observable<IContact> {
-    return this.http.get<IContact>('http://localhost:3000/contacts/city/' + cityId)
+    return this.http.get<IContact>('http://178.208.86.93:3000/contacts/city/' + cityId)
       .pipe(catchError(this.handleError))
 
   }
@@ -34,7 +34,7 @@ export class ContactsService {
   }
 
   public getContactById(id: number): Observable<IContact> {
-    return this.http.get<IContact>('http://localhost:3000/contacts/' + id);
+    return this.http.get<IContact>('http://178.208.86.93:3000/contacts/' + id);
   }
 
 }

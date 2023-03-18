@@ -14,6 +14,6 @@ export class EmployeesService {
   }
 
   public getEmployees(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>('http://localhost:3000/employees');
+    return this.http.get<IEmployee[]>('http://178.208.86.93:3000/employees');
   }
 }

@@ -14,6 +14,6 @@ export class PhotosService {
   }
 
   public getPhotos(): Observable<IPhoto[]> {
-    return this.http.get<IPhoto[]>('http://localhost:3000/photos');
+    return this.http.get<IPhoto[]>('http://178.208.86.93:3000/photos');
   }
 }

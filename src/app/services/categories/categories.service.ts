@@ -13,7 +13,7 @@ export class CategoriesService {
   ) { }
 
   public getCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>('http://localhost:3000/categories')
+    return this.http.get<ICategory[]>('http://178.208.86.93:3000/categories')
       .pipe(catchError(this.handleError));
   }
 

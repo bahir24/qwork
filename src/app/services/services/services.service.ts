@@ -13,16 +13,16 @@ export class ServicesService {
 
   public getServices(): Observable<IService[]> {
 
-    return this.http.get<IService[]>('http://localhost:3000/services');
+    return this.http.get<IService[]>('http://178.208.86.93:3000/services');
   }
 
   public getServicesWithCategory(): Observable<IService[]> {
 
-    return this.http.get<IService[]>('http://localhost:3000/services/grouped');
+    return this.http.get<IService[]>('http://178.208.86.93:3000/services/grouped');
   }
 
   public getRelated(): Observable<IService[]> {
 
-    return this.http.get<IService[]>('http://localhost:3000/services/related');
+    return this.http.get<IService[]>('http://178.208.86.93:3000/services/related');
   }
 }
