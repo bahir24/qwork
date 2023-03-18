@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {catchError, retry, Subject, takeUntil, throwError} from "rxjs";
 import {ContactsService} from "../../../services/contacts/contacts.service";
-import {ICity, IContact, ICoords} from "../../../models/contact";
+import {IContact} from "../../../models/contact";
+import {catchError, retry, Subject, takeUntil} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
-import {ICategory} from "../../../models/category";
 
 @Component({
   selector: 'app-contacts',
@@ -11,13 +10,10 @@ import {ICategory} from "../../../models/category";
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
-
   setContact(value: IContact): void {
     this.contact = value;
   }
-
-  public contact!:IContact;
-
+  public contact!: IContact;
   private unsubscribeNotifier = new Subject<void>();
 
   constructor(private readonly contactsService: ContactsService) {
@@ -25,47 +21,92 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactsService.getContactByCityId('6415720df885accbbefb49c2')
-      // .pipe(takeUntil(this.unsubscribeNotifier))
-      .subscribe((contact: IContact) => {this.setContact(contact)})
-
+      .subscribe((contact : IContact) => this.setContact(contact));
   }
-
-
-
-  // .subscribe((contact: IContact) => this.setContact(contact));
-  // .subscribe(
-  //
-  // )
-  // .pipe(
-  //   retry(3),
-  //   catchError(this.handleError))
-
-  // private handleError(error: HttpErrorResponse) {
-  //
-  //   if (error.status === 0) {
-  //     console.error('An error occurred:', error.error);
-  //   } else {
-  //     console.error(
-  //       `Backend returned code ${error.status}, body was: `, error.error);
-  //   }
-  //   return {
-  //     email: 'no email',
-  //     address: 'no address',
-  //     city: {
-  //       title: 'no city'
-  //     },
-  //     phone: 'no phone',
-  //     geo: {
-  //       lat: 'no lat',
-  //       lon: 'no lon'
-  //     }
-  //   };
-  //   return throwError(() => new Error('Something bad happened; please try again later.'));
-  // }
-
 }
 
 
+
+
+
+
+
+
+
+//
+//   if (error.status === 0) {
+//     console.error('An error occurred:', error.error);
+//   } else {
+//     console.error(
+//       `Backend returned code ${error.status}, body was: `, error.error);
+//   }
+//   return {
+//     email: 'no email',
+//     address: 'no address',
+//     city: {
+//       title: 'no city'
+//     },
+//     phone: 'no phone',
+//     geo: {
+//       lat: 'no lat',
+//       lon: 'no lon'
+//     }
+//   };
+// }
+
+// }
+
+
+
+
+// private handleError(error: HttpErrorResponse): IContact {
+//     if (error.status === 0) {
+//       console.error('An error occurred:', error.error);
+//     } else {
+//       console.error(
+//         `Backend returned code ${error.status}, body was: `, error.error);
+//     }
+//
+//   return {
+//     email: 'no email',
+//     address: 'no address',
+//     city: {
+//       title: 'no city'
+//     },
+//     phone: 'no phone',
+//     geo: {
+//       lat: 'no lat',
+//       lon: 'no lon'
+//     }
+//   };
+// }
+
+
+//   .pipe(
+//     retry(3),
+//     catchError(this.handleError)
+//     // catchError(this.handleError(error))
+//
+// // catchError(console.log(error.message()))
+//   );
+
+// catchError(this.handleError)
+
+
+//   if (error.status === 0) {
+//     console.error('An error occurred:', error.error);
+//   } else {
+//     console.error(
+//       `Backend returned code ${error.status}, body was: `, error.error);
+
+
+// .subscribe((contact: IContact) => this.setContact(contact));
+// .subscribe(
+//
+// )
+// .pipe(
+//   retry(3),
+//   catchError(this.handleError))
 // this.contact = Object.entries({
 //   email: 'mail@mail.com',
 //   address: 'ул. Ленина, д. 75, оф. 18',
