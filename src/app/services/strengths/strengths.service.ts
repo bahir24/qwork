@@ -14,6 +14,9 @@ export class StrengthsService {
   }
 
   public getStrengths(): Observable<IStrength[]> {
-    return this.http.get<IStrength[]>('http://localhost:3000/strengths');
+    let reslts = this.http.get<IStrength[]>('http://localhost:3000/strengths');
+    console.log(reslts)
+
+    return reslts;
   }
 }

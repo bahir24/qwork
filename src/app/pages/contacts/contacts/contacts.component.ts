@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {ContactsService} from "../../../services/contacts/contacts.service";
 import {IContact} from "../../../models/contact";
@@ -8,13 +8,15 @@ import {IContact} from "../../../models/contact";
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent {
+export class ContactsComponent implements OnInit {
   public contact!: IContact;
   private unsubscribeNotifier = new Subject<void>();
+  constructor(private readonly contactsService: ContactsService) {
+  }
 
-  constructor(private readonly contactsService: ContactsService,) {
-
-    this.contactsService.getContactByCityId('64118fb7daf2ed8910c5cad5').pipe(takeUntil(this.unsubscribeNotifier))
+  ngOnInit(): void {
+    this.contactsService.getContactByCityId('6415720df885accbbefb49c2')
+      .pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((contact: IContact) => {
           this.contact = contact;
           console.log(contact);
@@ -23,6 +25,7 @@ export class ContactsComponent {
           console.log(error);
         });
   }
+
 }
 
 

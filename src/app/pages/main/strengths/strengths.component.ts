@@ -13,16 +13,13 @@ export class StrengthsComponent implements OnInit {
   private unsubscribeNotifier = new Subject<void>();
   public groupedStrengths: IStrength[][] = [];
 
-
   private readonly blockInLine: number = 2
 
   constructor(
     private readonly strengthsService: StrengthsService,
   ) {
-
   }
   ngOnInit(): void {
-
     this.strengthsService.getStrengths().pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((toursArray: IStrength[]) => {
           this.strengths = toursArray;
