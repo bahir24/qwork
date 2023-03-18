@@ -25,7 +25,7 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactsService.getContactByCityId('6415720df885accbbefb49c2')
-      .pipe(takeUntil(this.unsubscribeNotifier))
+      // .pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((contact: IContact) => {this.setContact(contact)})
 
   }
