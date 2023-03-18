@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Subject, takeUntil} from "rxjs";
+import {catchError, retry, Subject, takeUntil, throwError} from "rxjs";
 import {ContactsService} from "../../../services/contacts/contacts.service";
 import {ICity, IContact, ICoords} from "../../../models/contact";
+import {HttpErrorResponse} from "@angular/common/http";
+import {ICategory} from "../../../models/category";
 
 @Component({
   selector: 'app-contacts',
@@ -13,18 +15,9 @@ export class ContactsComponent implements OnInit {
   setContact(value: IContact): void {
     this.contact = value;
   }
-  public contact: IContact = {
-    email: 'no email',
-    address: 'no address',
-    city: {
-      title: 'no city'
-    },
-    phone: 'no phone',
-    geo: {
-      lat: 'no lat',
-      lon: 'no lon'
-    }
-  };
+
+  public contact!:IContact;
+
   private unsubscribeNotifier = new Subject<void>();
 
   constructor(private readonly contactsService: ContactsService) {
@@ -32,8 +25,43 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactsService.getContactByCityId('6415720df885accbbefb49c2')
-      .subscribe((contact: IContact) => {this.setContact(contact)});
+      .pipe(takeUntil(this.unsubscribeNotifier))
+      .subscribe((contact: IContact) => {this.setContact(contact)})
+
   }
+
+
+
+  // .subscribe((contact: IContact) => this.setContact(contact));
+  // .subscribe(
+  //
+  // )
+  // .pipe(
+  //   retry(3),
+  //   catchError(this.handleError))
+
+  // private handleError(error: HttpErrorResponse) {
+  //
+  //   if (error.status === 0) {
+  //     console.error('An error occurred:', error.error);
+  //   } else {
+  //     console.error(
+  //       `Backend returned code ${error.status}, body was: `, error.error);
+  //   }
+  //   return {
+  //     email: 'no email',
+  //     address: 'no address',
+  //     city: {
+  //       title: 'no city'
+  //     },
+  //     phone: 'no phone',
+  //     geo: {
+  //       lat: 'no lat',
+  //       lon: 'no lon'
+  //     }
+  //   };
+  //   return throwError(() => new Error('Something bad happened; please try again later.'));
+  // }
 
 }
 
