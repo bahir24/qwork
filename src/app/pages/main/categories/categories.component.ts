@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
           this.categories = categories;
           console.log(categories);
         },
-        (error) => console.log(error));
+        (error) => console.log('categories error',  error));
 
     // console.log(this.example2);
   }

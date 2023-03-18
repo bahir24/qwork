@@ -19,10 +19,9 @@ export class ContactsComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((contact: IContact) => {
           this.contact = contact;
-          console.log(contact);
         },
         (error) => {
-          console.log(error);
+          console.log('contact error', error);
         });
   }
 

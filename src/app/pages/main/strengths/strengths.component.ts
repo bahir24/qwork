@@ -23,11 +23,10 @@ export class StrengthsComponent implements OnInit {
     this.strengthsService.getStrengths().pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((toursArray: IStrength[]) => {
           this.strengths = toursArray;
-          console.log(toursArray);
           this.groupedStrengths = this.chunkArray(this.strengths, this.blockInLine);
         },
         (error) => {
-          console.log(error);
+          console.log('strengths error', error);
         });
   }
 
