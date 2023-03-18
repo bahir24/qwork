@@ -7,15 +7,15 @@
           <div class="contacts__table--head">Email</div>
           <p class="contacts__table--data">{{ contact.email }}</p>
         </div>
-        <div *ngIf="contact" class="contacts__table--row">
+        <div *ngIf="contact && contact.email" class="contacts__table--row">
           <div class="contacts__table--head">Телефон</div>
           <p class="contacts__table--data">{{ contact.phone }}</p>
         </div>
-        <div *ngIf="contact" class="contacts__table--row">
+        <div *ngIf="contact && contact.email" class="contacts__table--row">
           <div class="contacts__table--head">Адрес</div>
           <p class="contacts__table--data">{{ contact.address }}</p>
         </div>
-        <div *ngIf="contact" class="contacts__table--row">
+        <div *ngIf="contact && contact.email" class="contacts__table--row">
           <div class="contacts__table--head">Город</div>
           <p class="contacts__table--data">{{ contact.city.title }}</p>
         </div>
