@@ -21,6 +21,11 @@ export class ServicesService {
     return this.http.get<IService[]>('http://178.208.86.93:3000/services/grouped');
   }
 
+  public getServiceById(serviceId: string): Observable<IService> {
+
+    return this.http.get<IService>('http://178.208.86.93:3000/service/' + serviceId);
+  }
+
   public getRelated(): Observable<IService[]> {
 
     return this.http.get<IService[]>('http://178.208.86.93:3000/services/related');
