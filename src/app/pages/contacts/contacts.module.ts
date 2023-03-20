@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ContactsComponent} from "./contacts/contacts.component";
 
 @NgModule({
@@ -10,7 +10,8 @@ import {ContactsComponent} from "./contacts/contacts.component";
     ContactsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
-export class ContactsModule { }
+export class ContactsModule {
+}

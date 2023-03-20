@@ -1,24 +1,24 @@
 <section class="mansory">
-    <div class="container">
-        <h2 class="section__head">уличные гуляния</h2>
-        <div class="mansory__wrapper">
-            <div *ngFor="let serviceGroup of groupedServices; first as start;"
-                 class="{{ start ? 'screen__left ' : 'screen__right ' }}">
-                <div *ngFor="let service of serviceGroup;" class="service__card">
-                    <div class="card__image">
-                        <img src="{{ service.img }}" alt="Картинка услуги" class="card__image--pic">
-                    </div>
-                    <div class="card__text">
-                        <h4 class="card__header">{{ service.title }}</h4>
-                        <h5 class="card__subheader">{{ service.subTitle }}</h5>
-                        
-                        <p  *ngFor="let data of service.data;"  class="card__text card__text--data">{{ data.key + ' ' + data.value }}</p>
-                        <p class="card__text">{{ service.desc }}</p>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section__head">{{ title }}</h2>
+    <div class="mansory__wrapper">
+      <div *ngFor="let serviceGroup of groupedServices; first as start;"
+           class="{{ start ? 'screen__left ' : 'screen__right ' }}">
+        <div *ngFor="let service of serviceGroup;" class="service__card">
+          <div class="card__image">
+            <img src="{{ service.img }}" alt="Картинка услуги" class="card__image--pic">
+          </div>
+          <div class="card__text">
+            <h4 class="card__header">{{ service.title }}</h4>
+            <h5 class="card__subheader">{{ service.subTitle }}</h5>
+            <p *ngFor="let data of service.data;"
+               class="card__text card__text--data">{{ data.key + ' ' + data.value }}</p>
+            <p class="card__text">{{ service.desc }}</p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 

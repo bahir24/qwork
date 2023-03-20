@@ -1,25 +1,30 @@
-<app-filter></app-filter>
+<app-filter (filterData)="updateServices($event)"></app-filter>
 <section class="services">
-    <div class="container">
-        <div class="services__wrapper">
-
-
-            <div *ngFor="let service of services;" class="card ">
-                <div class="card__image">
-                    <img src="{{ service.img }}" alt="Картинка услуги" class="card__image--pic">
-                </div>
-                <div class="card__desc">
-                    <h3 class="card__desc--head">{{ service.title }}</h3>
-                    <h3 class="card__desc--subhead"></h3>
-                    <div class="card__params">
-                        <div *ngFor="let data of service.data;" class="card__params--row">
-                            <p class="card__params--head">{{ data.key }}</p>
-                            <p class="card__params--data">{{ data.value }}</p>
-                        </div>
-                    </div>
-                    <p class="card__text">{{ service.desc }}</p>
-                </div>
+  <div class="container">
+    <div class="services__wrapper">
+      <div *ngFor="let service of services;" class="card ">
+        <div class="card__image">
+          <img src="{{ service.img }}" alt="Картинка услуги" class="card__image--pic">
+        </div>
+        <div class="card__desc">
+          <h3 class="card__desc--head">{{ service.title }}</h3>
+          <h3 class="card__desc--subhead"></h3>
+          <div class="card__params">
+            <div *ngFor="let data of service.data;" class="card__params--row">
+              <p class="card__params--head">{{ data.key }}</p>
+              <p class="card__params--data">{{ data.value }}</p>
             </div>
+          </div>
+          <p class="card__text">{{ service.desc }}</p>
+
+          <button routerLink="{{ '/service/' + service._id }}" class="button">Подробнее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!--          -->
 <!--            <div *ngFor="let service of services.street;" class="card ">-->
 <!--                <div class="card__image">-->
@@ -54,8 +59,3 @@
 <!--                    <p class="card__text">{{ service.desc }}</p>-->
 <!--                </div>-->
 <!--            </div>-->
-
-
-        </div>
-    </div>
-</section>

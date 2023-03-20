@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AboutComponent} from './about/about.component';
 import {GalleryModule} from "../gallery/gallery.module";
+import {RelatedModule} from "../related/related.module";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {GalleryModule} from "../gallery/gallery.module";
   ],
   imports: [
     CommonModule,
-    GalleryModule
+    GalleryModule,
+    RelatedModule
   ]
 })
 export class AboutModule {

@@ -13,8 +13,8 @@
             <p class="service__data--desc">{{ service.desc }}</p>
           </div>
         </div>
-        <div class="service__data--row service__data--row--divided service__data--row--nomb">
-          <button class="button">К списку программ</button>
+        <div routerLink="{{ '/order/:service_id' }}" class="service__data--row service__data--row--divided service__data--row--nomb">
+          <button routerLink="{{ '/search' }}" class="button">К списку программ</button>
           <button class="button">Заказать</button>
         </div>
       </div>

@@ -10,6 +10,8 @@ import {ServicesComponent} from "./services/services.component";
 import {CarouselComponent} from "./carousel/carousel.component";
 import {AccordionComponent} from "./accordion/accordion.component";
 import {AccordionModule} from "primeng/accordion";
+import {ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import {AccordionModule} from "primeng/accordion";
     DropdownModule,
     InputTextModule,
     AccordionModule,
+    ReactiveFormsModule,
+    RouterLink
   ],
 })
 export class ServicesModule {

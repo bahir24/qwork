@@ -1,11 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {IService} from "../../../models/service";
-import {CategoriesService} from "../../../services/categories/categories.service";
 import {ServicesService} from "../../../services/services/services.service";
-import {IContact} from "../../../models/contact";
 import {Subject} from "rxjs";
-import {IStrength} from "../../../models/strength";
+
 
 @Component({
   selector: 'app-service',

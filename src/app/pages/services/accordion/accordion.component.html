@@ -1,19 +1,34 @@
 <section class="accordion">
-    <div class="container">
-        <h2 class="section__head">Программы для площадок</h2>
-        <p-accordion  iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">
-            <p-accordionTab *ngFor="let service of services;let start = first;"  header="{{ service.title }}" [selected]="start" ngClass="accordion__item">
-                <div class="accordion__item--content">
-                    <div class="accordion__content--left">
-                        <h3 class="accordion__content--head">{{ service.subTitle }}</h3>
-                        <div *ngFor="let data of service.data;" class="accordion__paragraph">
-                            <h4 class="accordion__paragraph--head">{{ data.key }}</h4>
-                            <p class="accordion__paragraph--text">{{ data.value }}</p>
-                        </div>
-                        <div class="accordion__paragraph">
-                            <p class="accordion__paragraph--text">{{ service.desc }}</p>
-                        </div>
-<!--                        <div class="accordion__paragraph">-->
+  <div class="container">
+    <h2 class="section__head">{{ title }}</h2>
+    <p-accordion iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">
+      <p-accordionTab *ngFor="let service of services;let start = first;"
+                      header="{{ service.title }}" [selected]="start" class="accordion__item">
+        <div class="accordion__item--content">
+          <div class="accordion__content--left">
+            <h3 class="accordion__content--head">{{ service.subTitle }}</h3>
+            <div *ngFor="let data of service.data;" class="accordion__paragraph">
+              <h4 class="accordion__paragraph--head">{{ data.key }}</h4>
+              <p class="accordion__paragraph--text">{{ data.value }}</p>
+            </div>
+            <div class="accordion__paragraph">
+              <p class="accordion__paragraph--text">{{ service.desc }}</p>
+            </div>
+          </div>
+          <div class="accordion__content--right">
+            <img src="{{ service.img }}" alt="Картинка услуги" class="accordion__image">
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+    <div class="p-accordion-header-link p-accordion-header-link__empty">
+      <span class="p-accordion-header-text">empty</span>
+    </div>
+  </div>
+</section>
+
+
+<!--<div class="accordion__paragraph">&ndash;&gt;-->
 <!--                            <h3 class="accordion__paragraph&#45;&#45;head">игры:</h3>-->
 <!--                            <ul class="accordion__paragraph&#45;&#45;list">-->
 <!--                                <li class="accordion__paragraph&#45;&#45;item">заморожу</li>-->
@@ -21,22 +36,7 @@
 <!--                                <li class="accordion__paragraph&#45;&#45;item">ещё</li>-->
 <!--                            </ul>-->
 <!--                        </div>-->
-                    </div>
-                    <div class="accordion__content--right">
-                        <img src="{{ service.img }}" alt="Картинка услуги" class="accordion__image">
-                    </div>
-                </div>
-            </p-accordionTab>
-        </p-accordion>
-        <div class="p-accordion-header-link p-accordion-header-link__empty">
-            <span class="p-accordion-header-text">empty</span>
-        </div>
-    </div>
-</section>
-        
-        
-        
-        
+
 <!--        <p-accordion iconPos="end" collapseIcon="pi pi-arrow-down" expandIcon="pi pi-arrow-right">-->
 <!--            -->
 <!--            <p-accordionTab *ngFor="let service of services;let i = index;" header="{{ service.title }}" [selected]="{ i: false }" ngClass="accordion__item">-->

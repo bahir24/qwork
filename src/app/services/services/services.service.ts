@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, Observable, retry, throwError} from "rxjs";
-import { environment } from '../../../environments/environment';
-import {ICategory, ICategoryWithService} from "../../models/category";
+import {Observable, throwError} from "rxjs";
+import {environment} from '../../../environments/environment';
 import {IService} from "../../models/service";
+import {IFilter} from "../../models/filter";
 
 
 @Injectable({
@@ -11,6 +11,7 @@ import {IService} from "../../models/service";
 })
 export class ServicesService {
   private endpoint: string;
+
   constructor(
     private http: HttpClient
   ) {
@@ -18,11 +19,15 @@ export class ServicesService {
   }
 
   public getServices(): Observable<IService[]> {
-    return this.http.get<IService[]>( this.endpoint);
+    return this.http.get<IService[]>(this.endpoint);
   }
 
   public getServicesWithCategory(): Observable<IService[]> {
     return this.http.get<IService[]>(this.endpoint + '/categories');
+  }
+
+  public getServicesByCategoryIdWithCategory(filterData: IFilter): Observable<IService[]> {
+    return this.http.post<IService[]>(this.endpoint + '/filter', filterData);
   }
 
   public getServiceById(serviceId: string): Observable<IService> {

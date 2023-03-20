@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ICity, IContact} from "../../models/contact";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, Observable, retry, Subject, tap, throwError} from "rxjs";
+import {Observable, Subject, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
 
 @Injectable({
@@ -30,7 +30,6 @@ export class ContactsService {
   inCitiesGet(cities: ICity[]) {
     this.cities = cities;
     this.citiesGetSource.next(cities);
-
   }
 
   public getContacts(): Observable<IContact[]> {

@@ -1,12 +1,13 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ContactsService} from "../../../services/contacts/contacts.service";
 import {ServicesService} from "../../../services/services/services.service";
 import {ICity, IContact} from "../../../models/contact";
-import {ICategory, ICategoryWithService} from "../../../models/category";
+import {ICategory} from "../../../models/category";
 import {IService} from "../../../models/service";
 import {Subject, takeUntil} from "rxjs";
 import {CategoriesService} from "../../../services/categories/categories.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-order',
@@ -33,22 +34,6 @@ export class OrderComponent implements OnDestroy {
   public services!: IService[];
   public servicesSelect!: ICategory[];
   public orderForm: FormGroup;
-  public formInserted = {
-    name: '',
-    surname: '',
-    email: '',
-    phone: '',
-    city: '',
-    street: '',
-    house: '',
-    quarter: '',
-    program: '',
-    date: '',
-    age: '',
-    count: '',
-    comment: ''
-  };
-
 
   public setCities(cities: ICity[]): void {
     this.cities = cities;
@@ -66,7 +51,7 @@ export class OrderComponent implements OnDestroy {
     this.servicesSelect = categories;
   }
 
-  orderFormSubmit(){
+  orderFormSubmit() {
     console.log(this.orderForm);
   }
 
@@ -74,7 +59,20 @@ export class OrderComponent implements OnDestroy {
     private readonly contactsService: ContactsService,
     private readonly servicesService: ServicesService,
     private readonly categoriesService: CategoriesService,
+    private route: ActivatedRoute,
   ) {
+    servicesService.getServicesWithCategory()
+      .pipe(takeUntil(this.unsubscribeNotifier))
+      .subscribe((services: IService[]) => {
+        this.setServices(services);
+        const serviceId: (string | undefined) = this.route.snapshot.paramMap.get('id') || services.shift()?._id;
+        if (serviceId !== undefined) {
+          this.updateService(serviceId);
+        } else {
+          console.warn('no server response')
+        }
+      });
+
     contactsService.inContactFind$.subscribe(contact => {
       this.contact.geo = contact.geo,
         this.contact.city = contact.city,
@@ -83,15 +81,12 @@ export class OrderComponent implements OnDestroy {
         this.contact.phone = contact.phone
     })
     contactsService.getCities().subscribe(cities => this.cities.push(...cities));
-    this.servicesService.getServicesWithCategory().pipe(takeUntil(this.unsubscribeNotifier))
-      .subscribe((services: IService[]) => {
-        this.setServices(services);
-        this.setOrderService(services[0]);
-      });
+
     this.categoriesService.getCategoriesWithServices().pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe((categories: ICategory[]) => {
         this.setServicesSelect(categories);
       });
+
     this.orderForm = new FormGroup({
       "name": new FormControl(''),
       "surName": new FormControl(''),
@@ -110,17 +105,16 @@ export class OrderComponent implements OnDestroy {
 
   }
 
-  updateService(){
-    this.servicesService.getServiceWithCategoryById(this.orderForm.get('program')?.value)
+  updateService(serviceId: string) {
+    this.servicesService.getServiceWithCategoryById(serviceId)
       .pipe(takeUntil(this.unsubscribeNotifier))
       .subscribe(service => {
         this.setOrderService(service)
       })
   }
+
   ngOnDestroy() {
     this.unsubscribeNotifier.next();
     this.unsubscribeNotifier.complete();
   }
-
-
 }

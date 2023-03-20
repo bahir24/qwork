@@ -1,18 +1,20 @@
 <section class="slider">
-    <p-carousel [value]="services" [circular]="true"  [showNavigators]="true" [showIndicators]="false" 
-                contentClass="services-content" styleClass="services__slider">
-        <ng-template let-service pTemplate="service">
-            <div class="slide__service" [ngStyle]="{'background-image': 'url(' +  service.img  + ')'}">
-                <div class="slide__service--content">
-                    <div class="container container__v-stretched">
-                        <div class="service__desc">
-                            <h3 class="service__desc--head">{{ service.title }}</h3>
-                            <h4 class="service__desc--subhead">{{ service.subTitle }}</h4>
-                            <p *ngFor="let data of service.data;" class="service__desc--parameter">{{ data.key + ' ' + data.value }}</p>
-                        </div>
-                    </div>
-                </div>
+  <p-carousel [value]="services" [circular]="true"
+              [showNavigators]="true" [showIndicators]="false"
+              contentClass="services-content" styleClass="services__slider">
+    <ng-template let-service pTemplate="service">
+      <div class="slide__service" [ngStyle]="{'background-image': 'url(' +  service.img  + ')'}">
+        <div class="slide__service--content">
+          <div class="container container__v-stretched">
+            <div class="service__desc">
+              <h3 class="service__desc--head">{{ service.title }}</h3>
+              <h4 class="service__desc--subhead">{{ service.subTitle }}</h4>
+              <p *ngFor="let data of service.data;"
+                 class="service__desc--parameter">{{ data.key + ' ' + data.value }}</p>
             </div>
-        </ng-template>
-    </p-carousel>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
 </section>

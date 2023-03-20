@@ -1,159 +1,158 @@
 <section class="order">
-    <div class="container">
-        <h2 class="section__head">Оставьте заявку прямо сейчас!</h2>
-        <div class="order__wrapper">
-            <form [formGroup]="orderForm" (ngSubmit)="orderFormSubmit()"  class="order__form form-group">
-                <div class="order__form--inputs">
-                    <div class="order__form--row">
+  <div class="container">
+    <h2 class="section__head">Оставьте заявку прямо сейчас!</h2>
+    <div class="order__wrapper">
+      <form [formGroup]="orderForm" (ngSubmit)="orderFormSubmit()" class="order__form form-group">
+        <div class="order__form--inputs">
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <span class="form__group--label">имя</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" formControlName="name" pInputText placeholder="имя">
+              </div>
+            </label>
 
-                        <label class="order__form--input">
-                            <span class="form__group--label">имя</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                                <input type="text" formControlName="name" pInputText placeholder="имя">
-                            </div>
-                        </label>
+            <label class="order__form--input">
+              <span class="form__group--label">фамилия</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" formControlName="surName" pInputText placeholder="фамилия">
+              </div>
+            </label>
+          </div>
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <span class="form__group--label">email</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <input type="text" formControlName="email" pInputText placeholder="email">
+              </div>
+            </label>
 
-                        <label class="order__form--input">
-                            <span class="form__group--label">фамилия</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                                <input type="text" formControlName="surName" pInputText placeholder="фамилия">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="order__form--row">
-                        <label class="order__form--input">
-                            <span class="form__group--label">email</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                                <input type="text" formControlName="email" pInputText placeholder="email">
-                            </div>
-                        </label>
+            <label class="order__form--input">
+              <span class="form__group--label">телефон</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                <input type="text" formControlName="phone" pInputText placeholder="телефон">
+              </div>
+            </label>
+          </div>
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <div class="form__group">
+                <span class="form__group--label">Город</span>
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                  <p-dropdown formControlName="city" [options]="cities" optionLabel="title" [showClear]="true"
+                              placeholder="Выберите город"></p-dropdown>
+                </div>
+              </div>
+            </label>
+            <label class="order__form--input">
+              <span class="form__group--label">улица</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-directions-alt"></i></span>
+                <input type="text" formControlName="street" pInputText placeholder="улица">
+              </div>
+            </label>
+          </div>
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <span class="form__group--label">дом</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+                <input type="text" formControlName="house" pInputText placeholder="дом">
+              </div>
+            </label>
+            <label class="order__form--input">
+              <span class="form__group--label">квартира</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-tag"></i></span>
+                <input type="text" formControlName="quarter" pInputText placeholder="квартира">
+              </div>
+            </label>
+          </div>
 
-                        <label class="order__form--input">
-                            <span class="form__group--label">телефон</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                                <input type="text" formControlName="phone" pInputText placeholder="телефон">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="order__form--row">
-                        <label class="order__form--input">
-                            <div class="form__group">
-                                <span class="form__group--label">Город</span>
-                                <div class="p-inputgroup">
-                                    <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                                    <p-dropdown formControlName="city" [options]="cities" optionLabel="title" [showClear]="true"
-                                                placeholder="Выберите город"></p-dropdown>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="order__form--input">
-                            <span class="form__group--label">улица</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-directions-alt"></i></span>
-                                <input type="text" formControlName="street" pInputText placeholder="улица">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="order__form--row">
-                        <label class="order__form--input">
-                            <span class="form__group--label">дом</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
-                                <input type="text" formControlName="house" pInputText placeholder="дом">
-                            </div>
-                        </label>
-                        <label class="order__form--input">
-                            <span class="form__group--label">квартира</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-tag"></i></span>
-                                <input type="text" formControlName="quarter" pInputText placeholder="квартира">
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="order__form--row">
-                        <label class="order__form--input">
-                            <div class="form__group">
-                                <span class="form__group--label">Программа</span>
-                                <div class="p-inputgroup">
-                                    <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                                    <p-dropdown optionGroupChildren="services" formControlName="program"
-                                                (onChange)="updateService()" optionLabel="title" optionValue="_id"
-                                                [options]="servicesSelect" [showClear]="true"
-                                                placeholder="Выберите программу" [group]="true">
-                                        <ng-template let-group pTemplate="group">
-                                            <div class="group-label">
-                                                <div class="icon icon__dropdown">
-                                                    <svg class="icon__pic">
-                                                        <use attr.xlink:href="/assets/img/sprite.svg#{{ group.icon }}"></use>
-                                                    </svg>
-                                                </div>
-                                                <span class="group-label__text">{{group.title}}</span>
-                                            </div>
-                                        </ng-template>
-                                    </p-dropdown>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="order__form--input">
-                            <span class="form__group--label">дата</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                                <p-calendar [showClear]="true" formControlName="date" placeholder="Выберите дату"></p-calendar>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="order__form--row">
-                        <label class="order__form--input">
-                            <span class="form__group--label">возраст участников</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-bell"></i></span>
-                                <input type="text" formControlName="age" pInputText placeholder="возраст участников">
-                            </div>
-                        </label>
-                        <label class="order__form--input">
-                            <span class="form__group--label">Количество участников</span>
-                            <div class="p-inputgroup">
-                                <span class="p-inputgroup-addon"><i class="pi pi-users"></i></span>
-                                <input type="text" formControlName="count" pInputText placeholder="количество участников">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="order__form--row">
-                        <div class="order__form--textarea">
-                            <span class="form__group--label">Комментарий</span>
-                            <textarea pInputTextarea class="order__textarea" formControlName="comment"
-                                      rows="8" placeholder="комментарий"></textarea>
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <div class="form__group">
+                <span class="form__group--label">Программа</span>
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                  <p-dropdown optionGroupChildren="services" formControlName="program"
+                              (onChange)="updateService($event.value)" optionLabel="title" optionValue="_id"
+                              [options]="servicesSelect" [showClear]="true"
+                              placeholder="Выберите программу" [group]="true">
+                    <ng-template let-group pTemplate="group">
+                      <div class="group-label">
+                        <div class="icon icon__dropdown">
+                          <svg class="icon__pic">
+                            <use attr.xlink:href="/assets/img/sprite.svg#{{ group.icon }}"></use>
+                          </svg>
                         </div>
-                    </div>
-                </div>
-                <button pButton class="button">Заказать</button>
-            </form>
-
-
-            <div *ngIf="orderService" class="order__service">
-                <div class="order__service--content">
-                  <div class="order__service--image">
-                    <img [src]="orderService.img" alt="service" class="order__service--image-pic">
-                  </div>
-                  <div class="order__service--desc">
-                    <h4 class="order__service--desc--head">{{ orderService.title }}</h4>
-                    <h5 *ngIf="orderService.category" class="order__service--desc--subhead">{{ orderService.category.title }}</h5>
-                    <div class="order__service--desc--table">
-                      <div *ngFor="let data of orderService.data;" class="order-service__row">
-                        <p class="order-service__head">{{ data.key }}</p>
-                        <p class="order-service__data">{{ data.value }}</p>
+                        <span class="group-label__text">{{group.title}}</span>
                       </div>
-                    </div>
-                  </div>
+                    </ng-template>
+                  </p-dropdown>
                 </div>
-                <button class="button">Подробнее о программе</button>
+              </div>
+            </label>
+            <label class="order__form--input">
+              <span class="form__group--label">дата</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                <p-calendar [showClear]="true" formControlName="date" placeholder="Выберите дату"></p-calendar>
+              </div>
+            </label>
+          </div>
+          <div class="order__form--row">
+            <label class="order__form--input">
+              <span class="form__group--label">возраст участников</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-bell"></i></span>
+                <input type="text" formControlName="age" pInputText placeholder="возраст участников">
+              </div>
+            </label>
+            <label class="order__form--input">
+              <span class="form__group--label">Количество участников</span>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-users"></i></span>
+                <input type="text" formControlName="count" pInputText placeholder="количество участников">
+              </div>
+            </label>
+          </div>
+          <div class="order__form--row">
+            <div class="order__form--textarea">
+              <span class="form__group--label">Комментарий</span>
+              <textarea pInputTextarea class="order__textarea" formControlName="comment"
+                        rows="8" placeholder="комментарий"></textarea>
             </div>
+          </div>
         </div>
+        <button pButton class="button">Заказать</button>
+      </form>
+
+      <div *ngIf="orderService" class="order__service">
+        <div class="order__service--content">
+          <div class="order__service--image">
+            <img [src]="orderService.img" alt="service" class="order__service--image-pic">
+          </div>
+          <div class="order__service--desc">
+            <h4 class="order__service--desc--head">{{ orderService.title }}</h4>
+            <h5 *ngIf="orderService.category"
+                class="order__service--desc--subhead">{{ orderService.category.title }}</h5>
+            <div class="order__service--desc--table">
+              <div *ngFor="let data of orderService.data;" class="order-service__row">
+                <p class="order-service__head">{{ data.key }}</p>
+                <p class="order-service__data">{{ data.value }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button routerLink="{{ '/service/' + orderService._id }}" class="button">Подробнее о программе</button>
+      </div>
     </div>
+  </div>
 </section>
 <app-related></app-related>

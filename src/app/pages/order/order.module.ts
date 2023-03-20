@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RelatedModule} from "../related/related.module";
 import {DropdownModule} from "primeng/dropdown";
 import {CalendarModule} from "primeng/calendar";
@@ -9,6 +9,7 @@ import {OrderComponent} from "./order/order.component";
 import {ContactsService} from "../../services/contacts/contacts.service";
 import {ServicesService} from "../../services/services/services.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   exports: [
     OrderComponent
   ],
-  providers:[
+  providers: [
     ContactsService,
     ServicesService
   ],
@@ -29,7 +30,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     InputTextareaModule,
     RelatedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ]
 })
-export class OrderModule { }
+export class OrderModule {
+}

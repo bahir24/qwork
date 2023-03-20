@@ -1,57 +1,45 @@
 <section class="filter">
-    <div class="container">
-        <div class="filter__wrapper">
-            
-<!--            <div class="form__group">-->
-<!--                <span class="form__group&#45;&#45;label">Город</span>-->
-<!--                <p-dropdown [options]="[{name:'Санкт-Петербург'},{name:'Москва'},{name:'Новосибирск'}]"-->
-<!--                    optionLabel="name" [showClear]="true" placeholder="Выберите город"></p-dropdown>-->
-<!--            </div>-->
-            
-                <div class="form__group">
-                    <span class="form__group--label">Категория</span>
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                        <p-dropdown [options]="categories" optionLabel="title" [showClear]="true"
-                                    placeholder="Выберите категорию"></p-dropdown>
-                    </div>
-                </div>
-            
-            
-            
-            <div class="form__group">
-                <span class="form__group--label">Количество участников</span>
-                <div class="p-inputgroup">
-                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                    <input type="text" pInputText placeholder="Количество участников">
-                </div>
-            </div>
-
-            <div class="form__group">
-                <span class="form__group--label">Длительность</span>
-                <div class="p-inputgroup">
-                    <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                    <p-dropdown [options]="[{time:'15 минут'},{time:'45 минут'},{time:'2 часа'}]" optionLabel="name" [showClear]="true"
-                                placeholder="Длительность"></p-dropdown>
-                </div>
-            </div>
-
-            <div class="form__group">
-                <span class="form__group--label">Возраст</span>
-                <div class="inputs__container">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">от</span>
-                        <input type="text" pInputText placeholder="возраст">
-                    </div>
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">до</span>
-                        <input type="text" pInputText placeholder="возраст">
-                    </div>
-                </div>
-
-            </div>
+  <div class="container">
+    <form [formGroup]="filterForm" class="filter__wrapper">
+      <div class="form__group">
+        <span class="form__group--label">Категория</span>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+          <p-dropdown [options]="categories" formControlName="category"
+                      optionLabel="title" [showClear]="true"
+                      placeholder="Выберите категорию"></p-dropdown>
         </div>
+      </div>
+<!--      <div class="form__group">-->
+<!--        <span class="form__group&#45;&#45;label">Количество участников</span>-->
+<!--        <div class="p-inputgroup">-->
+<!--          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>-->
+<!--          <input type="text" formControlName="count" pInputText placeholder="Количество участников">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form__group">-->
+<!--        <span class="form__group&#45;&#45;label">Длительность</span>-->
+<!--        <div class="p-inputgroup">-->
+<!--          <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>-->
+<!--          <p-dropdown [options]="[{time:'15 минут'},{time:'45 минут'},{time:'2 часа'}]"-->
+<!--                      optionLabel="name" [showClear]="true" formControlName="time"-->
+<!--                      placeholder="Длительность"></p-dropdown>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form__group">-->
+<!--        <span class="form__group&#45;&#45;label">Возраст</span>-->
+<!--        <div class="inputs__container">-->
+<!--          <div class="p-inputgroup">-->
+<!--            <span class="p-inputgroup-addon">от</span>-->
+<!--            <input type="text" formControlName="ageFrom" pInputText placeholder="возраст">-->
+<!--          </div>-->
+<!--          <div class="p-inputgroup">-->
+<!--            <span class="p-inputgroup-addon">до</span>-->
+<!--            <input type="text" formControlName="ageTo" pInputText placeholder="возраст">-->
+<!--          </div>-->
+<!--        </div>-->
 
-
-    </div>
+<!--      </div>-->
+    </form>
+  </div>
 </section>

@@ -1,14 +1,15 @@
 <section class="about">
-    <div class="container">
-        <h2 class="section__head">О нашей компании</h2>
-        <div class="about__wrapper">
-            <div class="about__wrapper--left">
-                <p *ngFor="let strength of strengths;" class="about__text">{{ strength.desc }}</p>
-            </div>
-            <div class="about__wrapper--right">
-                <app-gallery></app-gallery>
-            </div>
-        </div>
-        <p *ngFor="let category of categories;" class="about__text">{{ category.desc }}</p>
+  <div class="container">
+    <h2 class="section__head">О нашей компании</h2>
+    <div class="about__wrapper">
+      <div class="about__wrapper--left">
+        <p *ngFor="let strength of strengths;" class="about__text">{{ strength.desc }}</p>
+      </div>
+      <div class="about__wrapper--right">
+        <app-gallery></app-gallery>
+      </div>
     </div>
+    <p *ngFor="let category of categories;" class="about__text">{{ category.desc }}</p>
+  </div>
 </section>
+<app-related></app-related>

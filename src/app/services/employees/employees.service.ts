@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IEmployee} from "../../models/employee";
@@ -9,6 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class EmployeesService {
   private endpoint: string;
+
   constructor(
     private http: HttpClient
   ) {

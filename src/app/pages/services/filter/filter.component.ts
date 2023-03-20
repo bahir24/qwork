@@ -1,5 +1,9 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Output, ViewEncapsulation} from '@angular/core';
 import {ICategory} from "../../../models/category";
+import {FormControl, FormGroup} from "@angular/forms";
+import {CategoriesService} from "../../../services/categories/categories.service";
+import {ServicesService} from "../../../services/services/services.service";
+import {IFilter} from "../../../models/filter";
 
 @Component({
   selector: 'app-filter',
@@ -8,27 +12,27 @@ import {ICategory} from "../../../models/category";
   encapsulation: ViewEncapsulation.None
 })
 export class FilterComponent {
-  public cities: {}[];
-  public categories: ICategory[];
-  constructor() {
-    this.cities = [{name:'Санкт-Петербург'},{name:'Москва'},{name:'Новосибирск'}];
-    this.categories = [
-      {
-        title: 'Дед Мороз у вас дома',
-        desc: 'Мы познакомимся с детьми и покажем им сказку,  в которой главными героями станут сами дети. Благодаря волшебству Деда мороза и помощи детей, произойдет новогоднее чудо. Мы обязательно поиграем с детьми, послушаем их стихи, и ответим на все вопросы Почемучек! В конце праздника обязательное вручение подарков, и фотоссесия.',
-        icon: 'home'
-      },
-      {
-        title: 'Большой праздник',
-        desc: 'Веселые, зажигательные истории С дедом морозом снегурочкой и другими героями сказок. Интерактив, оригинальные игры, конкурсы, соревнования, танцы и хороводы! Вручение подарков. Фотосессия.',
-        icon: 'area'
-      },
-      {
-        title: 'Уличные гуляния',
-        desc: 'Новогоднее уличное гуляние на котором никто не замерзнет! Яркое интерактивное представление для взрослых и детей, с играми, танцами, конкурсами! Широкий выбор дополнительного оборудования (сцена, звук, фото и видео зон,катание на санях с лошадью…)',
-        icon: 'street'
-      }
-    ];
+  @Output() filterData = new EventEmitter<IFilter>();
+  public categories: ICategory[] = [];
+  public filterForm: FormGroup;
 
+  constructor(
+    private readonly categoriesService: CategoriesService,
+    private readonly servicesService: ServicesService,
+  ) {
+    this.filterForm = new FormGroup({
+      "category": new FormControl(''),
+      // "count": new FormControl(''),
+      // "time": new FormControl(''),
+      // "ageFrom": new FormControl(''),
+      // "ageTo": new FormControl(''),
+    });
+
+    categoriesService.getCategories().subscribe((categories: ICategory[]) => this.categories.push(...categories));
+    this.filterForm.valueChanges.subscribe(result => this.updateServiceList(result));
+  }
+
+  updateServiceList(result: IFilter) {
+    this.filterData.emit(result);
   }
 }

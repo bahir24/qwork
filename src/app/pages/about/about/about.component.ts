@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IStrength} from "../../../models/strength";
 import {ICategory} from "../../../models/category";
+import {StrengthsService} from "../../../services/strengths/strengths.service";
+import {CategoriesService} from "../../../services/categories/categories.service";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-about',
@@ -8,52 +11,26 @@ import {ICategory} from "../../../models/category";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  public strengths: IStrength[];
-  public categories: ICategory[];
+  public strengths!: IStrength[];
+  public categories!: ICategory[];
+  private unsubscribeNotifier = new Subject<void>();
 
-  constructor() {
-    this.strengths = [
-      {
-        title: 'Мы любим детей',
-        desc: 'Наши профессионалы находят подход к каждому ребенку. Артисты никому не дают почувствовать себя одиноко, и даже самые непоседы всегда принимают участие в празднике.',
-        img: '/assets/img/strengths/strengths1-.jpg',
-        thumb: '/assets/img/strengths/strengths1-.jpg',
-      },
-      {
-        title: 'Мы серьезно относимся к работе',
-        desc: 'Каждый праздник проводится на высшем уровне, а актеры дарят детям тепло и любовь. Мы всегда учитываем пожелания заказчиков.  артисты всегда приходят вовремя, а иногда и заранее. Мы всегда звоним и предупреждаем в случае экстренной задержки.',
-        img: '/assets/img/strengths/strengths2-.jpg',
-        thumb: '/assets/img/strengths/strengths2-.jpg',
-      },
-      {
-        title: 'Оригинальные сценарии',
-        desc: 'Мы проводим праздник как по готовым сценариям, или по предложенному вами. Наши сценарии рассчитаны на детей разного возраста. Это всегда необычные истории, в которых есть место ЧУДУ, которого так ждут дети.',
-        img: '/assets/img/strengths/strengths3-.jpg',
-        thumb: '/assets/img/strengths/strengths3-.jpg',
-      },
-      {
-        title: 'Уникальный реквизит',
-        desc: 'Уникальный, изготовленный под сюжет программы реквизит. Под кажду программу мы изготавливаем бутафорию и реквизит, которые дополняют и украшают программу. После наших праздников дети верят в Деда мороза и его Волшебство!',
-        img: '/assets/img/strengths/strengths4-.jpg',
-        thumb: '/assets/img/strengths/strengths4-.jpg',
-      }
-    ];
-    this.categories = [
-      {
-        title: 'Дед Мороз у вас дома',
-        desc: 'Мы познакомимся с детьми и покажем им сказку,  в которой главными героями станут сами дети. Благодаря волшебству Деда мороза и помощи детей, произойдет новогоднее чудо. Мы обязательно поиграем с детьми, послушаем их стихи, и ответим на все вопросы Почемучек! В конце праздника обязательное вручение подарков, и фотоссесия.',
-        icon: 'home'
-      },
-      {
-        title: 'Большой праздник',
-        desc: 'Веселые, зажигательные истории С дедом морозом снегурочкой и другими героями сказок. Интерактив, оригинальные игры, конкурсы, соревнования, танцы и хороводы! Вручение подарков. Фотосессия.',
-        icon: 'area'
-      },
-      {
-        title: 'Уличные гуляния',
-        desc: 'Новогоднее уличное гуляние на котором никто не замерзнет! Яркое интерактивное представление для взрослых и детей, с играми, танцами, конкурсами! Широкий выбор дополнительного оборудования (сцена, звук, фото и видео зон,катание на санях с лошадью…)',
-        icon: 'street'
-      }
-    ];
+  setStrengths(strengths: IStrength[]): void {
+    this.strengths = strengths;
+  }
+
+  setCategories(categories: ICategory[]): void {
+    this.categories = categories;
+  }
+
+  constructor(
+    private readonly strengthsService: StrengthsService,
+    private readonly categoriesService: CategoriesService,
+  ) {
+    strengthsService.getStrengths().pipe(takeUntil(this.unsubscribeNotifier))
+      .subscribe((strengths: IStrength[]) => this.setStrengths(strengths));
+
+    categoriesService.getCategories()
+      .subscribe((categories: ICategory[]) => this.setCategories(categories));
   }
 }

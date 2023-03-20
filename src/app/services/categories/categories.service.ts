@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
-import {ICategory} from "../../models/category";
+import {ICategory, ICategoryWithService} from "../../models/category";
 import {environment} from "../../../environments/environment";
 
 @Injectable({
@@ -20,9 +20,8 @@ export class CategoriesService {
       .pipe(catchError(this.handleError));
   }
 
-  public getCategoriesWithServices(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(this.endpoint + '/services')
-      .pipe(catchError(this.handleError));
+  public getCategoriesWithServices(): Observable<ICategoryWithService[]> {
+    return this.http.get<ICategoryWithService[]>(this.endpoint + '/services');
   }
 
   private handleError(error: HttpErrorResponse){
