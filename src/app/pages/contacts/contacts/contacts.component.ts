@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ContactsService} from "../../../services/contacts/contacts.service";
-import {IContact} from "../../../models/contact";
-import {catchError, retry, Subject, takeUntil} from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
+import {ICity, IContact} from "../../../models/contact";
+import {Observable, Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-contacts',
@@ -10,19 +9,87 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  // public cities: ICity[] = [];
+  public contact: IContact = {
+  email: 'mail@mail.com',
+  address: 'ул. Ленина, д. 75, оф. 18',
+  city: {
+    title: 'Санкт-Петербург',
+  },
+  phone: '+79999999999',
+  geo: {
+    lat: '30.966554',
+    lon: '59.6654488'
+  }
+};
+  // setCities(value: ICity[]) {
+  //   this.cities = value;
+  // }
+
+  // @Input()
+  // get cities(): [] { return this._cities; }
+  // set cities(cities: []) {
+  //   this._cities = (cities) || [];
+  // }
+  // private _cities: [] = [];
+  // public cities: ICity[];
+  // getCities(): ICity[]{
+  //   return this.cities;
+  // }
+
+  // private cityId: string = '6416d8f50dd768f2a86ac718';
+  // setCityId(value: string): void {
+  //   this.cityId = value;
+  // }
+
+  // getCityId(): string {
+  //   return this._cityId;
+  // }
+
+  // public contact!: IContact;
+  // private unsubscribeNotifier = new Subject<void>();
   setContact(value: IContact): void {
+    // console.log(value);
     this.contact = value;
   }
-  public contact!: IContact;
-  private unsubscribeNotifier = new Subject<void>();
-
   constructor(private readonly contactsService: ContactsService) {
+    // contactsService.inCitiesGet$.subscribe(cities => this.cities.push(...cities))
+    contactsService.inContactFind$.subscribe(contact => this.setContact(contact))
   }
 
   ngOnInit(): void {
-    this.contactsService.getContactByCityId('6415720df885accbbefb49c2')
-      .subscribe((contact : IContact) => this.setContact(contact));
+    // this.setCities(allCities)
+    // this.cities
+    // this.cities.
+    // console.log(this.getCities());
+    // if(this.getCities()){
+    //   let cities: ICity[] = this.getCities();
+    //   if(cities[0]){
+    //     let city: ICity = cities[0];
+    //     if(city._id){
+    //       this.setCityId(city._id)
+    //     }
+    //   }
+    // }
+
+    // if()
+
+
+    // this.contactsService.getContactByCityId(this.cityId)
+    //   .pipe(takeUntil(this.unsubscribeNotifier))
+    //   .subscribe((contact: IContact) => this.setContact(contact));
+
   }
+
+  // private getContact(cityId: string|undefined) {
+  //   this.contactsService.getContactByCityId(cityId ?? '6416d8f50dd768f2a86ac718')
+  //     .pipe(takeUntil(this.unsubscribeNotifier))
+  //     .subscribe((contact: IContact) => this.setContact(contact));
+  // }
+  // ngOnDestroy() {
+    // this.unsubscribeNotifier.next();
+    // this.unsubscribeNotifier.complete();
+  // }
 }
 
 

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, Observable, retry, throwError} from "rxjs";
+import { environment } from '../../../environments/environment';
+import {ICategory, ICategoryWithService} from "../../models/category";
 import {IService} from "../../models/service";
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,21 +16,35 @@ export class ServicesService {
 
   public getServices(): Observable<IService[]> {
 
-    return this.http.get<IService[]>('http://178.208.86.93:3000/services');
+    return this.http.get<IService[]>( environment.server + '/services');
   }
 
-  public getServicesWithCategory(): Observable<IService[]> {
+  public getServicesWithCategory(): Observable<ICategoryWithService[]> {
 
-    return this.http.get<IService[]>('http://178.208.86.93:3000/services/grouped');
+    return this.http.get<ICategoryWithService[]>(environment.server + '/categories/services');
   }
 
   public getServiceById(serviceId: string): Observable<IService> {
-
-    return this.http.get<IService>('http://178.208.86.93:3000/service/' + serviceId);
+    // console.log(serviceId);
+    return this.http.get<IService>(environment.server + '/services/service/' + serviceId)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
   }
 
   public getRelated(): Observable<IService[]> {
 
-    return this.http.get<IService[]>('http://178.208.86.93:3000/services/related');
+    return this.http.get<IService[]>(environment.server + '/services/related');
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }

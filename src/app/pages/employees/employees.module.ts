@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CarouselModule} from "primeng/carousel";
+import {EmployeesService} from "../../services/employees/employees.service";
 
 
 
@@ -9,6 +10,9 @@ import {CarouselModule} from "primeng/carousel";
   imports: [
     CommonModule,
     CarouselModule,
-  ]
+  ],
+  providers:[
+    EmployeesService,
+  ],
 })
 export class EmployeesModule { }

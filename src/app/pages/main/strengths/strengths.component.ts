@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {IStrength} from "../../../models/strength";
 import {StrengthsService} from "../../../services/strengths/strengths.service";
 import {map, Subject, takeUntil} from "rxjs";
@@ -8,7 +8,7 @@ import {map, Subject, takeUntil} from "rxjs";
   templateUrl: './strengths.component.html',
   styleUrls: ['./strengths.component.scss']
 })
-export class StrengthsComponent implements OnInit {
+export class StrengthsComponent implements OnInit, OnDestroy {
   public strengths!: IStrength[];
   private unsubscribeNotifier = new Subject<void>();
   public groupedStrengths: IStrength[][] = [];
@@ -21,12 +21,9 @@ export class StrengthsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.strengthsService.getStrengths().pipe(takeUntil(this.unsubscribeNotifier))
-      .subscribe((toursArray: IStrength[]) => {
-          this.strengths = toursArray;
+      .subscribe((strengths: IStrength[]) => {
+          this.strengths = strengths;
           this.groupedStrengths = this.chunkArray(this.strengths, this.blockInLine);
-        },
-        (error) => {
-          console.log('strengths error', error);
         });
   }
 
@@ -35,6 +32,11 @@ export class StrengthsComponent implements OnInit {
       (acc: IStrength[][], _, index: number): IStrength[][] =>
         index % length ? acc : [...acc, arr.slice(index, index + length)],
       []);
+  }
+
+  ngOnDestroy() {
+    this.unsubscribeNotifier.next();
+    this.unsubscribeNotifier.complete();
   }
 }
 

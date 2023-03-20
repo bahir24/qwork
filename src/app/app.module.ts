@@ -10,6 +10,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {ImageModule} from "primeng/image";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ServicesModule} from "./pages/services/services.module";
+import {ContactsService} from "./services/contacts/contacts.service";
 
 @NgModule({
   declarations: [

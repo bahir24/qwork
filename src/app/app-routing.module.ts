@@ -7,6 +7,10 @@ import {ContactsComponent} from "./pages/contacts/contacts/contacts.component";
 import {AboutComponent} from "./pages/about/about/about.component";
 import {OrderComponent} from "./pages/order/order/order.component";
 import {SearchComponent} from "./pages/services/search/search.component";
+import {ContactsService} from "./services/contacts/contacts.service";
+import {HttpClient} from "@angular/common/http";
+
+// const contactsService
 
 const routes: Routes = [
     {
@@ -43,7 +47,7 @@ const routes: Routes = [
         path: 'contacts',
         title: 'Контакты',
         loadChildren: () => import('./pages/contacts/contacts.module').then(mod => mod.ContactsModule),
-        component: ContactsComponent
+        component: ContactsComponent,
     },
     {
         path: 'service/:id',
@@ -54,7 +58,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 export class AppRoutingModule {
 }

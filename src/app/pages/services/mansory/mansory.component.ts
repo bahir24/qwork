@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IService} from "../../../models/service";
 
 @Component({
@@ -6,7 +6,7 @@ import {IService} from "../../../models/service";
   templateUrl: './mansory.component.html',
   styleUrls: ['./mansory.component.scss']
 })
-export class MansoryComponent {
+export class MansoryComponent implements OnInit{
   @Input() services: IService[] = [];
   public groupedServices: any = [];
 

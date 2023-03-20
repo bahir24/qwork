@@ -20,3 +20,14 @@ export interface IServicesGrouped {
   street: IService[],
   area: IService[]
 }
+
+
+// export interface IServicesSelect {
+//   title: string,
+//   icon: string,
+//   services: IService[]
+// }
+// export interface IServicesSelectOption {
+//   title: string,
+//   value: string
+// }

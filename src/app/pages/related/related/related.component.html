@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="section__head">Популярные программы</h2>
         <div class="related-services__wrapper">
-            <div *ngFor="let service of services;" class="service">
+            <div *ngFor="let service of relatedServices;" class="service">
                 <div class="service__content">
                     <div class="service__img">
                         <img src="{{ service.img }}" alt="Картинка услуги" class="service__img-pic">
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="button">Подробнее</button>
             </div>
         </div>

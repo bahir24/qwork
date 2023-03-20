@@ -311,6 +311,8 @@ section {
     background: #ffffff;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     .p-dropdown-label {
+        width: 80%;
+        overflow: hidden;
       .p-placeholder {
         color: #6c757d;
       }

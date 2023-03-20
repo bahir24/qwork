@@ -42,7 +42,7 @@
                                 <span class="form__group--label">Город</span>
                                 <div class="p-inputgroup">
                                     <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                                    <p-dropdown [options]="cities" optionLabel="name" [showClear]="true"
+                                    <p-dropdown [options]="cities" optionLabel="title" [showClear]="true"
                                                 placeholder="Выберите город"></p-dropdown>
                                 </div>
                             </div>
@@ -78,18 +78,25 @@
                                 <span class="form__group--label">Программа</span>
                                 <div class="p-inputgroup">
                                     <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                                    <p-dropdown [options]=groupedServices optionLabel="label" [showClear]="true"
+                                    <p-dropdown optionGroupChildren="services" [(ngModel)]="programNumber" (onChange)="updateService()" optionLabel="title" optionValue="_id" [options]=servicesSelect [showClear]="true"
                                                 placeholder="Выберите программу" [group]="true">
                                         <ng-template let-group pTemplate="group">
                                             <div class="group-label">
                                                 <div class="icon icon__dropdown">
                                                     <svg class="icon__pic">
-                                                        <use attr.xlink:href="/assets/img/sprite.svg#{{ group.value }}"></use>
+                                                        <use attr.xlink:href="/assets/img/sprite.svg#{{ group.icon }}"></use>
                                                     </svg>
                                                 </div>
-                                                <span class="group-label__text">{{group.label}}</span>
+                                                <span class="group-label__text">{{group.title}}</span>
                                             </div>
+<!--                                          <ng-template *ngFor="let service of group.services;">-->
+<!--                                            <div class="country-item">-->
+<!--                                              <div>{{service.title}}</div>-->
+<!--                                            </div>-->
+<!--                                          </ng-template>-->
                                         </ng-template>
+
+
                                     </p-dropdown>
                                 </div>
                             </div>
@@ -129,22 +136,26 @@
                 <button class="button">Заказать</button>
             </div>
             <div class="order__service">
+              <ng-container (ngModel)="orderService">
                 <div class="order__service--content">
-                    <div class="order__service--image">
-                        <img src="{{ service.img }}" alt="service" class="order__service--image-pic">
+                  <div class="order__service--image">
+                    <img [src]="orderService.img" alt="service" class="order__service--image-pic">
+                  </div>
+                  <div class="order__service--desc">
+                    <h4 class="order__service--desc--head">{{ orderService.title }}</h4>
+                    <h5 class="order__service--desc--subhead">{{ orderService.category.title }}</h5>
+                    <div class="order__service--desc--table">
+                      <div *ngFor="let data of orderService.data;" class="order-service__row">
+                        <p class="order-service__head">{{ data.key }}</p>
+                        <p class="order-service__data">{{ data.value }}</p>
+                      </div>
                     </div>
-                    <div class="order__service--desc">
-                        <h4 class="order__service--desc--head">{{ service.title }}</h4>
-                        <h5 class="order__service--desc--subhead">{{ service.category.title }}</h5>
-                        <div class="order__service--desc--table">
-                            <div *ngFor="let data of service.data;" class="order-service__row">
-                                <p class="order-service__head">{{ data.key }}</p>
-                                <p class="order-service__data">{{ data.value }}</p>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
                 <button class="button">Подробнее о программе</button>
+
+              </ng-container>
+
             </div>
         </div>
     </div>
