@@ -1,9 +1,10 @@
 import {ICategory} from "./category";
 
 export interface IService {
+  _id?: string,
   title: string,
   subTitle: string,
-  category: ICategory,
+  category?: ICategory,
   data: IServiceData[],
   img: string,
   thumb: string,

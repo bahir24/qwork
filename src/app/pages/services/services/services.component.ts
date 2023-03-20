@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {IServicesGrouped} from "../../../models/service";
+import {IService, IServicesGrouped} from "../../../models/service";
+import {CategoriesService} from "../../../services/categories/categories.service";
+import {Subject, takeUntil} from "rxjs";
+import {ICategory} from "../../../models/category";
 
 @Component({
   selector: 'app-services',
@@ -7,6 +10,8 @@ import {IServicesGrouped} from "../../../models/service";
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent {
+  private unsubscribeNotifier = new Subject<void>();
+  public newservices!: ICategory[];
 
   public services: IServicesGrouped = {
     home: [
@@ -125,8 +130,37 @@ export class ServicesComponent {
     ],
   };
 
-  constructor() {
+  setServices(services: ICategory[]){
+    this.newservices = services;
   }
+
+  constructor(
+    private readonly categoryService: CategoriesService
+  ) {
+    categoryService.getCategoriesWithServices()
+      .subscribe((services: ICategory[]) => {
+        this.newservices = services;
+        this.keyedCategoriesByIcon(this.newservices);
+      });
+
+
+
+  }
+
+  keyedCategoriesByIcon(categories: ICategory[]){
+    categories.map((category: ICategory) => {
+      // let blockname =
+      // this.newservices.
+        // this.services[blockname] = category;
+        // [category.icon]: category
+
+    });
+    // console.log(mappesd);
+    // mappesd.map(mpeeee => console.log(Object.keys(mpeeee)[0]) );
+
+  }
+
+
 }
 //
 //

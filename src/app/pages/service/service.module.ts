@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ServiceComponent} from './service/service.component';
 import {RelatedModule} from "../related/related.module";
 import {GalleryModule} from "../gallery/gallery.module";
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import {GalleryModule} from "../gallery/gallery.module";
         RelatedModule,
       GalleryModule
     ],
-    
+
 })
 export class ServiceModule {}

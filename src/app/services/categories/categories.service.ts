@@ -2,21 +2,28 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {ICategory} from "../../models/category";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
-
+  private endpoint: string;
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.endpoint = environment.server + '/categories';
+  }
 
   public getCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>('http://178.208.86.93:3000/categories')
+    return this.http.get<ICategory[]>(this.endpoint)
       .pipe(catchError(this.handleError));
   }
 
+  public getCategoriesWithServices(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>(this.endpoint + '/services')
+      .pipe(catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse){
     if (error.status === 0) {

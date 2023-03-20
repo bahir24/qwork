@@ -12,61 +12,49 @@ export class ContactsService {
   private contact!: IContact;
   private citiesGetSource = new Subject<ICity[]>();
   private contactGetSource = new Subject<IContact>();
-  // private missionConfirmedSource = new Subject<string>();
+  private endpoint: string;
 
-  // Observable string streams
+  constructor(
+    private http: HttpClient
+  ) {
+    this.endpoint = environment.server + '/contacts';
+  }
+
   inCitiesGet$ = this.citiesGetSource.asObservable();
   inContactFind$ = this.contactGetSource.asObservable();
-  // missionConfirmed$ = this.missionConfirmedSource.asObservable();
 
-  // Service message commands
-
-  inContactFind(contact: IContact){
+  inContactFind(contact: IContact) {
     this.contactGetSource.next(contact)
   }
 
   inCitiesGet(cities: ICity[]) {
     this.cities = cities;
-
-
     this.citiesGetSource.next(cities);
 
   }
 
-  // confirmMission(astronaut: string) {
-  //   this.missionConfirmedSource.next(astronaut);
-  // }
-
-
-  constructor(
-    private http: HttpClient,
-
-  ) {
-  }
-
   public getContacts(): Observable<IContact[]> {
-    return this.http.get<IContact[]>(environment.server + '/contacts');
+    return this.http.get<IContact[]>(this.endpoint);
   }
 
   public getCities(): Observable<ICity[]> {
-    this.http.get<ICity[]>(environment.server + '/contacts/cities')
-      .subscribe(cities => {
-        this.inCitiesGet(cities);
+    const cities = this.http.get<ICity[]>(this.endpoint + '/cities')
+    cities.subscribe(cities => {
+      this.inCitiesGet(cities);
+      this.getContactByCityId(cities[1]._id ?? '6416d8f50dd768f2a86ac718')
+    });
 
-          this.getContactByCityId(cities[1]._id ?? '6416d8f50dd768f2a86ac718')
-      });
-
-    return this.http.get<ICity[]>(environment.server + '/contacts/cities');
+    return cities;
   }
 
   public getContactByCityId(cityId: string): Observable<IContact> {
-    this.http.get<IContact>(environment.server + '/contacts/city/' + cityId)
-      .subscribe(contact => {this.contact = contact;this.inContactFind(this.contact)});
-
-
-    return this.http.get<IContact>(environment.server + '/contacts/city/' + cityId);
+    const city = this.http.get<IContact>(this.endpoint + '/city/' + cityId);
+    city.subscribe(contact => {
+      this.contact = contact;
+      this.inContactFind(this.contact)
+    });
+    return city;
   }
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -78,10 +66,8 @@ export class ContactsService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-
-
   public getContactById(id: number): Observable<IContact> {
-    return this.http.get<IContact>('http://178.208.86.93:3000/contacts/' + id);
+    return this.http.get<IContact>(this.endpoint + id);
   }
 
 }

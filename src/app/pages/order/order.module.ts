@@ -8,7 +8,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {OrderComponent} from "./order/order.component";
 import {ContactsService} from "../../services/contacts/contacts.service";
 import {ServicesService} from "../../services/services/services.service";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {FormsModule} from "@angular/forms";
     InputTextModule,
     InputTextareaModule,
     RelatedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class OrderModule { }

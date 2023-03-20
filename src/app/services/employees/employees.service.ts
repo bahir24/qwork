@@ -8,13 +8,14 @@ import {environment} from "../../../environments/environment";
   providedIn: 'root'
 })
 export class EmployeesService {
-
+  private endpoint: string;
   constructor(
     private http: HttpClient
   ) {
+    this.endpoint = environment.server + '/employees';
   }
 
   public getEmployees(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>(environment.server + '/employees');
+    return this.http.get<IEmployee[]>(this.endpoint);
   }
 }

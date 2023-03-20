@@ -5,14 +5,17 @@ import {ICity, IContact} from "../../../models/contact";
 import {ICategory, ICategoryWithService} from "../../../models/category";
 import {IService} from "../../../models/service";
 import {Subject, takeUntil} from "rxjs";
+import {CategoriesService} from "../../../services/categories/categories.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit, OnDestroy {
+export class OrderComponent implements OnDestroy {
   public cities: ICity[] = [];
+  private unsubscribeNotifier = new Subject<void>();
   public contact: IContact = {
     email: 'mail@mail.com',
     address: 'ул. Ленина, д. 75, оф. 18',
@@ -25,11 +28,26 @@ export class OrderComponent implements OnInit, OnDestroy {
       lon: '59.6654488'
     }
   };
-  private unsubscribeNotifier = new Subject<void>();
+
   public orderService!: IService;
   public services!: IService[];
-  public programNumber: string = '';
   public servicesSelect!: ICategory[];
+  public orderForm: FormGroup;
+  public formInserted = {
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    city: '',
+    street: '',
+    house: '',
+    quarter: '',
+    program: '',
+    date: '',
+    age: '',
+    count: '',
+    comment: ''
+  };
 
 
   public setCities(cities: ICity[]): void {
@@ -44,15 +62,19 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.services = services;
   }
 
-  public setServicesSelect(services: ICategory[]): void {
-    this.servicesSelect = services;
+  public setServicesSelect(categories: ICategory[]): void {
+    this.servicesSelect = categories;
+  }
+
+  orderFormSubmit(){
+    console.log(this.orderForm);
   }
 
   constructor(
     private readonly contactsService: ContactsService,
     private readonly servicesService: ServicesService,
+    private readonly categoriesService: CategoriesService,
   ) {
-
     contactsService.inContactFind$.subscribe(contact => {
       this.contact.geo = contact.geo,
         this.contact.city = contact.city,
@@ -60,32 +82,45 @@ export class OrderComponent implements OnInit, OnDestroy {
         this.contact.address = contact.address,
         this.contact.phone = contact.phone
     })
-
-
     contactsService.getCities().subscribe(cities => this.cities.push(...cities));
-
-  }
-
-  ngOnInit(): void {
     this.servicesService.getServicesWithCategory().pipe(takeUntil(this.unsubscribeNotifier))
-      .subscribe((categories: ICategoryWithService[]) => {
-        const services: IService[] = categories.map(category => category.services).flat()
+      .subscribe((services: IService[]) => {
         this.setServices(services);
         this.setOrderService(services[0]);
+      });
+    this.categoriesService.getCategoriesWithServices().pipe(takeUntil(this.unsubscribeNotifier))
+      .subscribe((categories: ICategory[]) => {
         this.setServicesSelect(categories);
       });
+    this.orderForm = new FormGroup({
+      "name": new FormControl(''),
+      "surName": new FormControl(''),
+      "email": new FormControl(''),
+      "phone": new FormControl(''),
+      "city": new FormControl(''),
+      "street": new FormControl(''),
+      "house": new FormControl(''),
+      "quarter": new FormControl(''),
+      "program": new FormControl(''),
+      "date": new FormControl(''),
+      "age": new FormControl(''),
+      "count": new FormControl(''),
+      "comment": new FormControl('')
+    });
+
   }
 
+  updateService(){
+    this.servicesService.getServiceWithCategoryById(this.orderForm.get('program')?.value)
+      .pipe(takeUntil(this.unsubscribeNotifier))
+      .subscribe(service => {
+        this.setOrderService(service)
+      })
+  }
   ngOnDestroy() {
     this.unsubscribeNotifier.next();
     this.unsubscribeNotifier.complete();
   }
 
-  updateService(){
-    console.log('here');
-    this.servicesService.getServiceById(this.programNumber)
-      .subscribe(service => {
-        console.log(service);
-        this.setOrderService(service)} )
-  }
+
 }

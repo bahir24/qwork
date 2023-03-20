@@ -10,32 +10,32 @@ import {IService} from "../../models/service";
   providedIn: 'root'
 })
 export class ServicesService {
+  private endpoint: string;
   constructor(
     private http: HttpClient
-  ) { }
-
-  public getServices(): Observable<IService[]> {
-
-    return this.http.get<IService[]>( environment.server + '/services');
+  ) {
+    this.endpoint = environment.server + '/services';
   }
 
-  public getServicesWithCategory(): Observable<ICategoryWithService[]> {
+  public getServices(): Observable<IService[]> {
+    return this.http.get<IService[]>( this.endpoint);
+  }
 
-    return this.http.get<ICategoryWithService[]>(environment.server + '/categories/services');
+  public getServicesWithCategory(): Observable<IService[]> {
+    return this.http.get<IService[]>(this.endpoint + '/categories');
   }
 
   public getServiceById(serviceId: string): Observable<IService> {
-    // console.log(serviceId);
-    return this.http.get<IService>(environment.server + '/services/service/' + serviceId)
-      .pipe(
-        retry(3),
-        catchError(this.handleError)
-      );
+    return this.http.get<IService>(this.endpoint + '/service/' + serviceId);
+  }
+
+  public getServiceWithCategoryById(serviceId: string): Observable<IService> {
+    return this.http.get<IService>(this.endpoint + '/service/category/' + serviceId);
   }
 
   public getRelated(): Observable<IService[]> {
 
-    return this.http.get<IService[]>(environment.server + '/services/related');
+    return this.http.get<IService[]>(this.endpoint + '/related');
   }
 
   private handleError(error: HttpErrorResponse) {
