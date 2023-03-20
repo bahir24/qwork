@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MainComponent} from "./main/main.component";
 import {StrengthsComponent} from "./strengths/strengths.component";
@@ -10,7 +10,6 @@ import {OrderModule} from "../order/order.module";
 import {StrengthsService} from "../../services/strengths/strengths.service";
 import {CategoriesService} from "../../services/categories/categories.service";
 import {CarouselModule} from "primeng/carousel";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -25,15 +24,11 @@ import {HttpClientModule} from "@angular/common/http";
     RelatedModule,
     ContactsModule,
     OrderModule,
-    CarouselModule,
-    HttpClientModule
+    CarouselModule
   ],
   providers:[
     StrengthsService,
     CategoriesService
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class MainModule {

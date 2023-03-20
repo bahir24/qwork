@@ -11,6 +11,7 @@ import {ImageModule} from "primeng/image";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ServicesModule} from "./pages/services/services.module";
 import {ContactsService} from "./services/contacts/contacts.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ContactsService} from "./services/contacts/contacts.service";
     MainModule,
     ServicesModule,
     MenubarModule,
-    ImageModule
+    ImageModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
